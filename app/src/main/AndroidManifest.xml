@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+        package="customers.com.shopiyoo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="customers.com.shopiyoo.helper.AppController"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:usesCleartextTraffic,android:allowBackup"
+        tools:targetApi="m">
+        <activity android:name="customers.com.shopiyoo.activity.NotificationList" />
+        <activity android:name="customers.com.shopiyoo.activity.DrawerActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.WebViewActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.MapActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.OrderListActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.TrackerDetailActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.OrderPlacedActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.CheckoutActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.FullScreenViewActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.ProductDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="customers.com.shopiyoo.activity.SplashActivity" />
+        </activity>
+        <activity
+            android:name="customers.com.shopiyoo.activity.SearchActivity"
+            android:launchMode="singleTop" />
+        <activity android:name="customers.com.shopiyoo.activity.ProfileActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.LoginActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter
+                android:autoVerify="true"
+                tools:targetApi="m">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="ekart.wrteam.in"
+                    android:pathPrefix="/refer"
+                    android:scheme="https" />
+                <data
+                    android:host="ekart.wrteam.in"
+                    android:pathPrefix="/itemdetail"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity android:name="customers.com.shopiyoo.activity.MainActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.ReferEarnActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.SubCategoryActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.FavouriteActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.CartActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.ProductListActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.CategoryActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.PayPalWebActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <receiver android:name=".helper.SMSBroadcastReceiver"
+            android:permission="TODO">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="customers.com.shopiyoo.helper.MyFirebaseMessagingService"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service android:name="customers.com.shopiyoo.helper.GPSTracker" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_launcher" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimary" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBXlhKonnI81SudNKTAG8S3T9Q8z8quiTg" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>
