@@ -62,8 +62,8 @@ public class AdapterStyle1 extends RecyclerView.Adapter<AdapterStyle1.VideoHolde
     @Override
     public int getItemCount() {
         int product;
-        if (productList.size() > 4) {
-            product = 4;
+        if (productList.size() > 6) {
+            product = 6;
         } else {
             product = productList.size();
         }

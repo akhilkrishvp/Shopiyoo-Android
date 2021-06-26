@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color">
+    android:background="@color/white">
 
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -30,35 +30,41 @@
                     android:id="@+id/offerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp" />
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
                     android:orientation="vertical">
 
-                    <RelativeLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/pagerLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-
                         <androidx.viewpager.widget.ViewPager
                             android:id="@+id/pager"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="@dimen/slider_height"
-                            android:clipToPadding="false" />
-
+                            android:clipToPadding="false"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
                         <LinearLayout
                             android:id="@+id/layout_markers"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_alignBottom="@+id/pager"
                             android:gravity="center"
-                            android:orientation="horizontal" />
+                            android:orientation="horizontal"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/pager"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    </RelativeLayout>
                 </LinearLayout>
 
 
@@ -66,30 +72,31 @@
                     android:id="@+id/lytCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="@dimen/margin_10dp"
+                            android:paddingTop="@dimen/margin_5dp"
+                            android:paddingBottom="@dimen/dimen_5dp"
                             android:text="@string/shopbycategory"
+                            android:layout_marginStart="@dimen/dimen_16dp"
+                            android:layout_marginEnd="@dimen/dimen_16dp"
+                            android:fontFamily="@font/meiryo"
                             android:textColor="@color/txt_color"
-                            android:textSize="@dimen/mid_text" />
+                            android:textSize="@dimen/dimen_18sp" />
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/categoryrecycleview"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="5dp" />
+                            android:layout_marginStart="@dimen/dimen_16dp"
+                            android:layout_marginTop="@dimen/dimen_5dp"/>
                     </LinearLayout>
 
 
@@ -99,8 +106,8 @@
                     android:id="@+id/sectionView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginStart="16dp"
                     android:visibility="visible" />
 
 
@@ -124,5 +131,6 @@
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
 </RelativeLayout>

@@ -7,6 +7,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 
+import com.bumptech.glide.request.RequestOptions;
+
 import customers.com.shopiyoo.R;
 
 public class Utils {
@@ -39,5 +41,12 @@ public class Utils {
                 return false;
             }
         });
+    }
+
+    public static RequestOptions getImagePlaceholder() {
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(R.drawable.placeholder);
+        requestOptions.error(R.drawable.placeholder);
+        return requestOptions;
     }
 }

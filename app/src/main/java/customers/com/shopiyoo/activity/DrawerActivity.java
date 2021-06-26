@@ -112,6 +112,7 @@ public class DrawerActivity extends AppCompatActivity {
 
     private void setupNavigationDrawer() {
         Menu nav_Menu = navigationView.getMenu();
+
         if (session.isUserLoggedIn()) {
             nav_Menu.findItem(R.id.menu_profile).setVisible(true);
             nav_Menu.findItem(R.id.menu_logout).setVisible(true);

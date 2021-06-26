@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:layout_below="@+id/recyclerView"
     android:layout_marginTop="@dimen/default_margin"
-    android:background="@drawable/card_shadow"
     android:visibility="visible">
 
     <RelativeLayout
@@ -18,11 +17,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/default_margin"
-            android:layout_marginTop="@dimen/default_margin"
             android:layout_toStartOf="@+id/tvMore"
             android:text="section"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/mid_text"
+            android:paddingTop="@dimen/dimen_5dp"
+            android:fontFamily="@font/meiryo"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvTitle"
             android:layout_marginStart="@dimen/default_margin"
+            android:visibility="gone"
             android:layout_toStartOf="@+id/tvMore"
             android:text="item"
             android:textColor="@color/gray_blue" />
@@ -44,9 +45,9 @@
             android:layout_marginEnd="@dimen/margin_10dp"
             android:padding="5dp"
             android:text="@string/view_all"
-            android:background="@drawable/bg_btn"
+            android:fontFamily="@font/meiryo"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textStyle="bold" />
     </RelativeLayout>
 
@@ -55,6 +56,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/titleLyt1"
-        android:layout_margin="5dp"
-        android:background="@drawable/default_bg" />
+        android:layout_margin="5dp" />
 </RelativeLayout>

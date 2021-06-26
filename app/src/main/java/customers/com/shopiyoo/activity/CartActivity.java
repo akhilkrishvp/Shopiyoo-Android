@@ -65,6 +65,7 @@ public class CartActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.cart));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.black));
         session = new Session(CartActivity.this);
         progressbar = findViewById(R.id.progressbar);
         lyttotal = findViewById(R.id.lyttotal);
@@ -86,15 +87,16 @@ public class CartActivity extends AppCompatActivity {
         lyttotal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(totalKgs >= 25.0) {
+                if (session.isUserLoggedIn()) {
+                    startActivity(new Intent(CartActivity.this, CheckoutActivity.class));
+                } else {
+                    startActivity(new Intent(CartActivity.this, LoginActivity.class).putExtra("fromto", "checkout"));
+                }
+                /*if(totalKgs >= 25.0) {
                     Toast.makeText(CartActivity.this, "Purchase limit 25KG..!", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (session.isUserLoggedIn()) {
-                        startActivity(new Intent(CartActivity.this, CheckoutActivity.class));
-                    } else {
-                        startActivity(new Intent(CartActivity.this, LoginActivity.class).putExtra("fromto", "checkout"));
-                    }
-                }
+
+                }*/
             }
         });
 
@@ -151,6 +153,7 @@ public class CartActivity extends AppCompatActivity {
                 ApiConfig.RequestToVolley(new VolleyCallback() {
                     @Override
                     public void onSuccess(boolean result, String response) {
+                        Log.e("=================*cart- ",response);
                         System.out.println("=================*cart- " + response + " == " + id);
                         if (result) {
                             try {

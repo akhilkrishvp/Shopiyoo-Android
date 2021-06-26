@@ -190,10 +190,10 @@ public class ProductLoadMoreAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         NetworkImageView imgThumb;
         ImageView imgFav, imgIndicator;
         TextView imgarrow;
-        CardView lytmain;
+        LinearLayout lytmain;
         AppCompatSpinner spinner;
         public ImageButton imgAdd, imgMinus;
-        LinearLayout qtyLyt;
+        LinearLayout qtyLyt,addBtnLAyout;
 
         public ViewHolderRow(View itemView) {
             super(itemView);
@@ -210,6 +210,7 @@ public class ProductLoadMoreAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             imgMinus = itemView.findViewById(R.id.btnminusqty);
             txtqty = itemView.findViewById(R.id.txtqty);
             qtyLyt = itemView.findViewById(R.id.qtyLyt);
+            addBtnLAyout = itemView.findViewById(R.id.addBtnLAyout);
             imgFav = itemView.findViewById(R.id.imgFav);
             lytmain = itemView.findViewById(R.id.lytmain);
             spinner = itemView.findViewById(R.id.spinner);
@@ -303,10 +304,14 @@ public class ProductLoadMoreAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         holder.txtstatus.setText(extra.getServe_for());
 
         if (extra.getDiscounted_price().equals("0") || extra.getDiscounted_price().equals("")) {
+            holder.originalPrice.setVisibility(View.GONE);
+            holder.showDiscount.setVisibility(View.GONE);
             holder.originalPrice.setText("");
             holder.showDiscount.setText("");
             holder.productPrice.setText(mactivity.getResources().getString(R.string.mrp) + Constant.SETTING_CURRENCY_SYMBOL + extra.getProductPrice());
         } else {
+            holder.originalPrice.setVisibility(View.VISIBLE);
+            holder.showDiscount.setVisibility(View.VISIBLE);
             spannableString = new SpannableString(mactivity.getResources().getString(R.string.mrp) + Constant.SETTING_CURRENCY_SYMBOL + extra.getPrice());
             spannableString.setSpan(new StrikethroughSpan(), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             holder.originalPrice.setText(spannableString);
@@ -315,11 +320,11 @@ public class ProductLoadMoreAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         }
 
         if (extra.getServe_for().equalsIgnoreCase(Constant.SOLDOUT_TEXT)) {
-            holder.txtstatus.setVisibility(View.VISIBLE);
+            holder.txtstatus.setVisibility(View.GONE);
             holder.txtstatus.setTextColor(Color.RED);
             holder.qtyLyt.setVisibility(View.GONE);
         } else {
-            holder.txtstatus.setVisibility(View.INVISIBLE);
+            holder.txtstatus.setVisibility(View.GONE);
             holder.qtyLyt.setVisibility(View.VISIBLE);
         }
         holder.imgAdd.setOnClickListener(new View.OnClickListener() {
@@ -393,6 +398,75 @@ public class ProductLoadMoreAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             }
         });
 
+        holder.addBtnLAyout.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                double addQty = Double.parseDouble(databaseHelper.CheckOrderExists(extra.getId(), product.getId())) ;
+                Log.e("Max Qty : ", product.getMaxPurchaseQty());
+                Log.e("Add Qty : ", String.valueOf(addQty));
+
+                if (product.getMaxPurchaseQty().equals("null")) {
+                    if (extra.getType().equals("loose")) {
+                        String measurement = extra.getMeasurement_unit_name();
+                        if (measurement.equals("kg") || measurement.equals("ltr") || measurement.equals("gm") || measurement.equals("ml")) {
+                            double totalKg;
+                            if (measurement.equals("kg") || measurement.equals("ltr"))
+                                totalKg = (Integer.parseInt(extra.getMeasurement()) * 1000);
+                            else
+                                totalKg = (Integer.parseInt(extra.getMeasurement()));
+                            double cartKg = ((databaseHelper.getTotalKG(product.getId()) + totalKg) / 1000);
+
+
+                            if (cartKg <= product.getGlobalStock()) {
+                                holder.txtqty.setText(databaseHelper.AddUpdateOrder(extra.getId(), product.getId(), true, mactivity, false, Double.parseDouble(extra.getProductPrice()), extra.getMeasurement() + extra.getMeasurement_unit_name() + "==" + product.getName() + "==" + extra.getProductPrice()).split("=")[0]);
+
+                            } else {
+                                Toast.makeText(mactivity, mactivity.getResources().getString(R.string.kg_limit), Toast.LENGTH_LONG).show();
+                            }
+
+                        } else {
+                            RegularCartAdd(product, holder, extra);
+                        }
+                    } else {
+                        RegularCartAdd(product, holder, extra);
+                    }
+                } else if (!product.getMaxPurchaseQty().equals("null")) {
+                    if (Double.parseDouble(product.getMaxPurchaseQty()) != addQty) {
+                        if (extra.getType().equals("loose")) {
+                            String measurement = extra.getMeasurement_unit_name();
+                            if (measurement.equals("kg") || measurement.equals("ltr") || measurement.equals("gm") || measurement.equals("ml")) {
+                                double totalKg;
+                                if (measurement.equals("kg") || measurement.equals("ltr"))
+                                    totalKg = (Integer.parseInt(extra.getMeasurement()) * 1000);
+                                else
+                                    totalKg = (Integer.parseInt(extra.getMeasurement()));
+                                double cartKg = ((databaseHelper.getTotalKG(product.getId()) + totalKg) / 1000);
+
+
+                                if (cartKg <= product.getGlobalStock()) {
+                                    holder.txtqty.setText(databaseHelper.AddUpdateOrder(extra.getId(), product.getId(), true, mactivity, false, Double.parseDouble(extra.getProductPrice()), extra.getMeasurement() + extra.getMeasurement_unit_name() + "==" + product.getName() + "==" + extra.getProductPrice()).split("=")[0]);
+
+                                } else {
+                                    Toast.makeText(mactivity, mactivity.getResources().getString(R.string.kg_limit), Toast.LENGTH_LONG).show();
+                                }
+
+                            } else {
+                                RegularCartAdd(product, holder, extra);
+                            }
+                        } else {
+                            RegularCartAdd(product, holder, extra);
+                        }
+                    } else if (Double.parseDouble(product.getMaxPurchaseQty()) == addQty){
+                        Toast.makeText(mactivity, "Max Purchase Product limit " + product.getMaxPurchaseQty(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                mactivity.invalidateOptionsMenu();
+            }
+        });
+
         holder.imgMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -407,8 +481,9 @@ public class ProductLoadMoreAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     public void RegularCartAdd(final Product product, final ViewHolderRow holder, final PriceVariation extra) {
 
-        if (Double.parseDouble(databaseHelper.CheckOrderExists(extra.getId(), product.getId())) < Double.parseDouble(extra.getStock()))
+        if (Double.parseDouble(databaseHelper.CheckOrderExists(extra.getId(), product.getId())) < Double.parseDouble(extra.getStock())){
             holder.txtqty.setText(databaseHelper.AddUpdateOrder(extra.getId(), product.getId(), true, mactivity, false, Double.parseDouble(extra.getProductPrice()), extra.getMeasurement() + extra.getMeasurement_unit_name() + "==" + product.getName() + "==" + extra.getProductPrice()).split("=")[0]);
+        }
         else
             Toast.makeText(mactivity, mactivity.getResources().getString(R.string.stock_limit), Toast.LENGTH_SHORT).show();
     }

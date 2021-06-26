@@ -2,19 +2,53 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowDisablePreview">true</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="actionMenuTextColor">@color/white</item>
+        <item name="actionMenuTextColor">@color/black</item>
         <item name="android:fontFamily">@font/open_sans</item>
         <item name="android:splitMotionEvents">false</item>
         <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_arrow_back</item>
+    </style>
+
+
+    <style name="AppTheme_green" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowDisablePreview">true</item>
+        <item name="colorPrimary">@color/green_branded</item>
+        <item name="colorPrimaryDark">@color/green_branded</item>
+        <item name="colorAccent">@color/green_branded</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="android:fontFamily">@font/meiryo</item>
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_arrow_back</item>
     </style>
 
     <style name="TabLayoutStyle" parent="@android:style/TextAppearance.Widget.TabWidget">
         <item name="android:textSize">15sp</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="myRadioButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/gray_4</item>
+        <item name="colorControlActivated">@color/green_branded</item>
+    </style>
+
+    <style name="MyTheme.ActionBarStyle" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="MyTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="DialogAnimationWithFullWidth" parent="Base.Theme.AppCompat.Dialog">
+        <item name="android:windowEnterAnimation">@anim/appear</item>
+        <item name="android:windowExitAnimation">@anim/disappear</item>
+        <item name="android:windowMinWidthMajor">87%</item>
+        <item name="android:windowMinWidthMinor">87%</item>
     </style>
 
 </resources>

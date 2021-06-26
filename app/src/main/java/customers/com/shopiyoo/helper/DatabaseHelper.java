@@ -298,10 +298,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_ORDER_NAME + " WHERE " + VID + " = ? AND " + PID + " = ?", new String[]{vid, pid});
         if (cursor.moveToFirst()) {
             count = cursor.getString(cursor.getColumnIndex(QTY));
-            if (count.equals("0")) {
+            /*if (count.equals("0")) {
                 db.execSQL("DELETE FROM " + TABLE_ORDER_NAME + " WHERE " + VID + " = ? AND " + PID + " = ?", new String[]{vid, pid});
 
-            }
+            }*/
         }
         cursor.close();
         db.close();

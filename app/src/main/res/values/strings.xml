@@ -21,6 +21,7 @@
     <string name="msg_reset_pass_success">Your password reset successfully, please login with your password.</string>
     <string name="title_category">Category</string>
     <string name="title_fav">Favourite</string>
+    <string name="title_my_order">My Order</string>
     <string name="title_cart">Cart</string>
     <string name="communicate">Communicate</string>
     <string name="contact">Contact Us</string>
@@ -42,7 +43,7 @@
     <string name="mobile_send_msg">We will send you an OTP on this mobile number to verify. </string>
     <string name="please_type_verification_code_sent_to">Please Enter OTP sent via SMS on </string>
     <string name="personal_info">Personal Info</string>
-    <string name="not_registered">Not Registered yet? Click Here to SignUp</string>
+    <string name="not_registered">Not Registered yet? Register now.</string>
     <string name="forgottext">Forgot password ?</string>
     <string name="forgot_message_hint">Enter registered mobile number</string>
     <string name="changepswtext">Change Password </string>
@@ -68,6 +69,7 @@
     <string name="code">00</string>
     <string name="dateofbirth">Date Of Birth</string>
     <string name="is_login">Login ?</string>
+    <string name="login_sign_up">Login / SignUp</string>
     <string name="sign_up">SignUp</string>
     <string name="next">Next</string>
     <string name="otp">Enter OTP</string>
@@ -106,16 +108,19 @@
     <string name="free">Free</string>
     <string name="cart_subtotal">Total</string>
     <string name="tax">Tax</string>
+    <string name="gst">GSt(%)</string>
     <string name="discount">Discount</string>
     <string name="checkout">Checkout</string>
     <string name="update_location">Update Your Location</string>
     <string name="Delivery_Address">Delivery Address</string>
+    <string name="deliver_to">Deliver to</string>
     <string name="delivery">Delivery</string>
     <string name="payment">Payment</string>
     <string name="current_location">Current Location</string>
     <string name="order_list">Order Summary</string>
     <string name="confirm">Confirm</string>
     <string name="proceed">Proceed</string>
+    <string name="pay">Pay</string>
     <string name="promo_code_msg">Have a Promo Code?</string>
     <string name="promo_code">Promo Code</string>
     <string name="apply">Apply</string>
@@ -175,6 +180,7 @@
     <string name="my_location">My Location</string>
     <string name="offer_price">M.R.P.:&#160;</string>
     <string name="mrp">M.R.P.:&#160;</string>
+    <string name="rs">Rs.&#160;</string>
     <string name="you_save">You Save:&#160;</string>
     <string name="canceled_on">Order Cancelled On : &#160;</string>
     <string name="name_1">Name :&#160;</string>

@@ -36,13 +36,13 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartIt
     public Activity activity;
     SpannableString spannableString;
     DatabaseHelper databaseHelper;
-    private double totalKgs;
+
 
     public CartListAdapter(ArrayList<Product> cartDataList, Activity activity, double totalKgs) {
         this.productList = cartDataList;
         this.activity = activity;
         databaseHelper = new DatabaseHelper(activity);
-        this.totalKgs = totalKgs;
+
     }
 
 
@@ -89,7 +89,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.CartIt
                 double addQty = Double.parseDouble(databaseHelper.CheckOrderExists(priceVariation.getId(), order.getId())) ;
                 Log.e("Max Qty : ", order.getMaxPurchaseQty());
                 Log.e("Add Qty : ", String.valueOf(addQty));
-                Log.e("Total Kg : ", String.valueOf(totalKgs));
+
 
 
                 if (order.getMaxPurchaseQty().equals("null")) {

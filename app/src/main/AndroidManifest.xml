@@ -38,7 +38,9 @@
             android:name="customers.com.shopiyoo.activity.SearchActivity"
             android:launchMode="singleTop" />
         <activity android:name="customers.com.shopiyoo.activity.ProfileActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.LoginActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.LoginActivity"
+            android:hardwareAccelerated="true"
+            android:theme="@style/AppTheme_green"/>
         <activity android:name="customers.com.shopiyoo.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,7 +65,8 @@
                     android:scheme="https" />
             </intent-filter>
         </activity>
-        <activity android:name="customers.com.shopiyoo.activity.MainActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.MainActivity"
+            android:hardwareAccelerated="true"/>
         <activity android:name="customers.com.shopiyoo.activity.ReferEarnActivity" />
         <activity android:name="customers.com.shopiyoo.activity.SubCategoryActivity" />
         <activity android:name="customers.com.shopiyoo.activity.FavouriteActivity" />

@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -80,6 +81,7 @@ public class LoginActivity extends AppCompatActivity implements OnMapReadyCallba
     Button btnotpverify, btnEmailVerify, btnsubmit, btnResetPass;
     String from, mobile, fromto, pincode, city, area, cityId = "0", areaId = "0";
     PinView edtotp;
+    ImageView backArrow;
     TextView txtmobileno, tvResend, tvSignUp, tvForgotPass, tvPrivacyPolicy, tvResendPass, tvTime;
     ScrollView scrollView;
     AppCompatSpinner cityspinner, areaSpinner;
@@ -118,6 +120,7 @@ public class LoginActivity extends AppCompatActivity implements OnMapReadyCallba
         session = new Session(getApplicationContext());
         cityArrayList = new ArrayList<>();
         areaList = new ArrayList<>();
+        backArrow = findViewById(R.id.backArrow);
         chPrivacy = findViewById(R.id.chPrivacy);
         txtmobileno = findViewById(R.id.txtmobileno);
         cityspinner = findViewById(R.id.cityspinner);
@@ -217,12 +220,17 @@ public class LoginActivity extends AppCompatActivity implements OnMapReadyCallba
                     SetCitySpinnerData();
                     break;
             }
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         } else {
             lytlogin.setVisibility(View.VISIBLE);
 
         }
-
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         cityspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

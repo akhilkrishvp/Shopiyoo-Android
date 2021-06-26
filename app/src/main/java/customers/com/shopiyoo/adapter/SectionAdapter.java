@@ -55,10 +55,13 @@ public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.SectionH
                 holder.recyclerView.setAdapter(adapterStyle2);
                 break;
             case "style_3":
-                holder.recyclerView.setLayoutManager(new GridLayoutManager(activity, 2));
-                AdapterStyle1 adapter3 = new AdapterStyle1(activity, section.getProductList(), R.layout.layout_style_3);
-                holder.recyclerView.setAdapter(adapter3);
+                holder.recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
+                AdapterStyle3 adapterStyle3 = new AdapterStyle3(activity, section.getProductList(),R.layout.new_offer_layout);
+                holder.recyclerView.setAdapter(adapterStyle3);
                 break;
+                /*holder.recyclerView.setLayoutManager(new GridLayoutManager(activity, 2));
+                AdapterStyle1 adapter3 = new AdapterStyle1(activity, section.getProductList(), R.layout.layout_style_3);
+                holder.recyclerView.setAdapter(adapter3);*/
         }
 
         holder.tvMore.setOnClickListener(new View.OnClickListener() {

@@ -46,12 +46,10 @@ public class OrderListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_list);
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.order_track));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        initToolbar();
         session = new Session(getApplicationContext());
-        tabs = new String[]{getString(R.string.all), getString(R.string.in_process1), getString(R.string.shipped1), getString(R.string.delivered1), getString(R.string.cancelled1), getString(R.string.returned1)};
+       // tabs = new String[]{getString(R.string.all), getString(R.string.in_process1), getString(R.string.shipped1), getString(R.string.delivered1), getString(R.string.cancelled1), getString(R.string.returned1)};
+        tabs = new String[]{getString(R.string.all)};
         lytempty = findViewById(R.id.lytempty);
         lytdata = findViewById(R.id.lytdata);
 
@@ -61,6 +59,17 @@ public class OrderListActivity extends AppCompatActivity {
         GetOrderDetails();
     }
 
+
+
+    private void initToolbar(){
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getResources().getString(R.string.title_my_order));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.black));
+        /*Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.order_track));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
+    }
     private void GetOrderDetails() {
         Map<String, String> params = new HashMap<String, String>();
         params.put(Constant.GETORDERS, Constant.GetVal);
@@ -94,7 +103,6 @@ public class OrderListActivity extends AppCompatActivity {
                                     JSONArray sarray = statusarray.getJSONArray(k);
                                     String sname = sarray.getString(0);
                                     String sdate = sarray.getString(1);
-
                                     statusarraylist.add(new OrderTracker(sname, sdate));
                                     laststatusname = sname;
                                     laststatusdate = sdate;

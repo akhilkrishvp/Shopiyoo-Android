@@ -115,8 +115,9 @@ public class ApiConfig {
         final ProgressDisplay progressDisplay = new ProgressDisplay(activity);
 
         if (AppController.isConnected(activity)) {
-            if (isprogress)
-                progressDisplay.showProgress();
+            /*if (isprogress)
+                progressDisplay.showProgress();*/
+            Log.e("Url...... ",url);
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {

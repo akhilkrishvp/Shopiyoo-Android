@@ -104,6 +104,7 @@ public class CheckoutActivity extends AppCompatActivity implements OnMapReadyCal
         setContentView(R.layout.activity_checkout);
         mainLayout = findViewById(R.id.mainLayout);
         toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.black));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         paymentModelClass = new PaymentModelClass(CheckoutActivity.this);
@@ -162,9 +163,9 @@ public class CheckoutActivity extends AppCompatActivity implements OnMapReadyCal
         tvCurrent.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_address, 0, 0, 0);
         tvDelivery.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_next_process, 0, 0, 0);
         tvPayment.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_next_process_gray, 0, 0, 0);
-        tvConfirmOrder.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_confirm, 0);
-        tvPlaceOrder.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_process, 0);
-        tvPreTotal.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_info, 0, 0, 0);
+     //   tvConfirmOrder.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_confirm, 0);
+      //  tvPlaceOrder.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_process, 0);
+      //  tvPreTotal.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_info, 0, 0, 0);
         ApiConfig.getWalletBalance(CheckoutActivity.this, session);
         GetTimeSlots();
         try {
@@ -553,6 +554,7 @@ public class CheckoutActivity extends AppCompatActivity implements OnMapReadyCal
                 dialog.dismiss();
             }
         });
+        dialog.getWindow().setWindowAnimations(R.style.DialogAnimationWithFullWidth);
         dialog.show();
     }
 

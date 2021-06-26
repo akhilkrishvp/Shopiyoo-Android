@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color">
+    android:background="@color/white">
 
     <include layout="@layout/toolbar_layout" />
 
@@ -12,7 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/lyttotal"
-        android:layout_below="@+id/toolbar" />
+        android:layout_below="@+id/toolbar"
+        android:paddingTop="@dimen/dimen_10dp"
+        android:paddingStart="@dimen/dimen_16dp"
+        android:paddingEnd="@dimen/dimen_16dp"/>
 
 
     <RelativeLayout
@@ -22,12 +25,13 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/card_shadow"
         android:padding="@dimen/margin_10dp"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <LinearLayout
             android:id="@+id/lytamt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:orientation="horizontal">
 
             <TextView
@@ -50,6 +54,7 @@
             android:id="@+id/lytdelivery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_below="@+id/lytamt"
             android:orientation="horizontal">
 
@@ -73,6 +78,7 @@
             android:id="@+id/lytsubtotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_below="@+id/lytdelivery"
             android:orientation="horizontal">
 
@@ -96,7 +102,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dimen_50dp"
             android:layout_below="@+id/lytsubtotal"
             android:layout_marginTop="5dp"
             android:background="@drawable/bg_button"
@@ -111,30 +117,23 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toStartOf="@+id/txtcheckout"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/white"
-                android:textStyle="bold|italic" />
+                android:fontFamily="@font/meiryo_bold"
+                android:textSize="@dimen/dimen_16sp"/>
 
             <TextView
                 android:id="@+id/txtcheckout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toStartOf="@+id/imgcheckout"
                 android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:text="@string/checkout"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/imgcheckout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/checkout" />
+                android:paddingEnd="16dp"
+                android:fontFamily="@font/meiryo_bold"
+                android:textSize="@dimen/dimen_16sp"
+                android:text="@string/checkout"
+                android:textColor="@color/white"/>
+
 
         </RelativeLayout>
     </RelativeLayout>

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -63,6 +64,7 @@ public class MainActivity extends DrawerActivity {
     private RecyclerView categoryRecyclerView, sectionView, offerView;
     private ArrayList<Slider> sliderArrayList;
     public static ArrayList<Category> categoryArrayList, sectionList;
+    public static ArrayList<Category> homeSubcategoryList = new ArrayList<>();
     private ViewPager mPager;
     private LinearLayout mMarkersLayout;
     private int size;
@@ -70,7 +72,7 @@ public class MainActivity extends DrawerActivity {
     private Handler handler;
     private Runnable Update;
     private int currentPage = 0;
-
+     int subcategory_listSize = 8;
     private LinearLayout lytCategory;
     NestedScrollView nestedScrollView;
     ProgressBar progressBar;
@@ -80,10 +82,11 @@ public class MainActivity extends DrawerActivity {
         super.onCreate(savedInstanceState);
         getLayoutInflater().inflate(R.layout.activity_main, frameLayout);
         databaseHelper = new DatabaseHelper(MainActivity.this);
+      //  databaseHelper.DeleteAllOrderData();
         session = new Session(MainActivity.this);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
+        getSupportActionBar().setTitle("");
 
         //pull to refresh home page
         final SwipeRefreshLayout pullToRefresh = findViewById(R.id.pullToRefresh);
@@ -94,6 +97,7 @@ public class MainActivity extends DrawerActivity {
         lytBottom = findViewById(R.id.lytBottom);
         layoutSearch = findViewById(R.id.layoutSearch);
         layoutSearch.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.GONE);
 
 //        setAppLocal("your_app_language_code_here");
 
@@ -144,6 +148,7 @@ public class MainActivity extends DrawerActivity {
                         R.string.drawer_close
                 ) {
         };
+        drawerToggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.black));
 
         FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
             @Override
@@ -158,7 +163,7 @@ public class MainActivity extends DrawerActivity {
         if (AppController.isConnected(MainActivity.this)) {
             ApiConfig.GetSettings(MainActivity.this);
             GetSlider();
-            GetCategory();
+            GetCategoryById();
             SectionProductRequest();
             GetOfferImage();
             ApiConfig.displayLocationSettingsRequest(MainActivity.this);
@@ -179,7 +184,7 @@ public class MainActivity extends DrawerActivity {
                 if (AppController.isConnected(MainActivity.this)) {
                     ApiConfig.GetSettings(MainActivity.this);
                     GetSlider();
-                    GetCategory();
+                    GetCategoryById();
                     SectionProductRequest();
                     GetOfferImage();
                     ApiConfig.displayLocationSettingsRequest(MainActivity.this);
@@ -228,8 +233,56 @@ public class MainActivity extends DrawerActivity {
         }, MainActivity.this, Constant.OFFER_URL, params, false);
     }
 
+
+
+    private void GetCategoryById() {
+     //   progressBar.setVisibility(View.VISIBLE);
+        Map<String, String> params = new HashMap<>();
+        params.put(Constant.CATEGORY_ID, "1");
+
+        System.out.println("======params" + params.toString());
+        categoryArrayList = new ArrayList<>();
+        ApiConfig.RequestToVolley(new VolleyCallback() {
+            @Override
+            public void onSuccess(boolean result, String response) {
+                progressBar.setVisibility(View.GONE);
+                System.out.println("======sub cate " + response);
+                if (result) {
+                    try {
+                        JSONObject object = new JSONObject(response);
+                        if (!object.getBoolean(Constant.ERROR)) {
+                            JSONArray jsonArray = object.getJSONArray(Constant.DATA);
+                            if(jsonArray.length() < 8 ){
+                                subcategory_listSize = jsonArray.length();
+                            }
+                            for (int i = 0; i < subcategory_listSize; i++) {
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                categoryArrayList.add(new Category(jsonObject.getString(Constant.ID),
+                                        jsonObject.getString(Constant.NAME),
+                                        jsonObject.getString(Constant.SUBTITLE),
+                                        jsonObject.getString(Constant.IMAGE)));
+                            }
+                            categoryArrayList.add(new Category("-1",
+                                    "View All",
+                                    "",
+                                    ""));
+                            categoryRecyclerView.setAdapter(new CategoryAdapter(MainActivity.this, categoryArrayList, R.layout.lyt_category_main, "sub_cate"));
+
+                        } else {
+                            lytCategory.setVisibility(View.GONE);
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }, MainActivity.this, Constant.SubcategoryUrl, params, true);
+    }
+
+
     private void GetCategory() {
-        progressBar.setVisibility(View.VISIBLE);
+
         Map<String, String> params = new HashMap<String, String>();
         ApiConfig.RequestToVolley(new VolleyCallback() {
             @Override
@@ -276,13 +329,16 @@ public class MainActivity extends DrawerActivity {
                     try {
                         // System.out.println("====res section " + response);
                         JSONObject object1 = new JSONObject(response);
+                        Log.e("section response...",object1.toString());
                         if (!object1.getBoolean(Constant.ERROR)) {
                             sectionList = new ArrayList<>();
                             JSONArray jsonArray = object1.getJSONArray(Constant.SECTIONS);
+
                             for (int j = 0; j < jsonArray.length(); j++) {
                                 Category section = new Category();
                                 JSONObject jsonObject = jsonArray.getJSONObject(j);
                                 section.setName(jsonObject.getString(Constant.TITLE));
+                                Log.e("style...",jsonObject.getString(Constant.TITLE));
                                 section.setStyle(jsonObject.getString(Constant.SECTION_STYLE));
                                 section.setSubtitle(jsonObject.getString(Constant.SHORT_DESC));
                                 JSONArray productArray = jsonObject.getJSONArray(Constant.PRODUCTS);
@@ -469,7 +525,8 @@ public class MainActivity extends DrawerActivity {
     }
 
     private void OpenCart() {
-
+       /* databaseHelper.getCartList();
+        databaseHelper.getTotalItemOfCart();*/
         startActivity(new Intent(MainActivity.this, CartActivity.class));
 
     }

@@ -1,34 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/lytMain"
     android:layout_width="match_parent"
-    android:layout_height="170dp"
+    android:layout_height="wrap_content"
+    android:paddingEnd="@dimen/dimen_8dp"
+    android:paddingBottom="@dimen/dimen_10dp"
     android:gravity="center_vertical"
-    android:background="@drawable/card_shadow"
     android:orientation="vertical">
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
-
-        <customers.com.shopiyoo.ui.CircleImageView
+        android:layout_height="120dp"
+        android:orientation="vertical">
+        <customers.com.shopiyoo.helper.RoundRectCornerImageView
             android:id="@+id/imgcategory"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerInParent="true"
-            android:layout_margin="@dimen/margin_5dp" />
-    </RelativeLayout>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:scaleType="centerCrop"
+            android:src="@drawable/test"
+            android:layout_centerInParent="true"/>
+        <LinearLayout
+            android:id="@+id/viewAll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            >
+            <ImageView
+                android:layout_width="@dimen/dimen_35dp"
+                android:layout_height="@dimen/dimen_35dp"
+                android:src="@drawable/ic_view_all"
+                />
+        </LinearLayout>
+    </LinearLayout>
+<!--
+    <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/thumbnailCardView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="visible"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.cardview.widget.CardView>-->
 
     <TextView
         android:id="@+id/txttitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:fontFamily="@font/meiryo"
         android:gravity="center"
-        android:padding="5dp"
+        android:padding="3dp"
+        android:textSize="13sp"
+        android:layout_marginTop="@dimen/dimen_5dp"
         android:textColor="@color/black" />
 </LinearLayout>

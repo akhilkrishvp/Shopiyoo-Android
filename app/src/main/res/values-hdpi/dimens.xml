@@ -3,5 +3,5 @@
     <dimen name="c_thumb_height">100dp</dimen>
     <dimen name="c_thumb_width">90dp</dimen>
     <dimen name="add_remove_size">24dp</dimen>
-    <dimen name="slider_height">170dp</dimen>
+    <dimen name="slider_height">160dp</dimen>
 </resources>

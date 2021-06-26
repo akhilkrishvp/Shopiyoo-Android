@@ -3,27 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/card_shadow"
-    android:padding="@dimen/margin_10dp"
+    android:paddingStart="@dimen/dimen_16dp"
+    android:paddingEnd="@dimen/dimen_16dp"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="7dp"
         android:text="@string/confirm_order_amt"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/dark_gray" />
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:fontFamily="@font/meiryo_bold"
+        android:textSize="@dimen/dimen_18sp"
+        android:textColor="@color/black" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:visibility="gone"
         android:background="@color/gray" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_10dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -37,7 +39,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/items"
-                android:textColor="@color/dark_gray" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1" />
 
             <TextView
                 android:id="@+id/tvItemTotal"
@@ -45,7 +48,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="end"
-                android:textColor="@color/dark_gray" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1" />
         </LinearLayout>
 
 
@@ -60,7 +64,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/delivery_charge1"
-                android:textColor="@color/dark_gray" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1"/>
 
             <TextView
                 android:id="@+id/tvDeliveryCharge"
@@ -68,7 +73,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="end"
-                android:textColor="@color/dark_gray" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1" />
         </LinearLayout>
 
         <LinearLayout
@@ -83,7 +89,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/tax"
-                android:textColor="@color/dark_gray" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1" />
 
             <TextView
                 android:id="@+id/tvTaxAmt"
@@ -91,7 +98,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="end"
-                android:textColor="@color/dark_gray" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -106,7 +114,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/total"
-                android:textColor="@color/dark_gray" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1"/>
 
             <TextView
                 android:id="@+id/tvTotal"
@@ -114,7 +123,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="end"
-                android:textColor="@color/dark_gray" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1" />
         </LinearLayout>
 
         <LinearLayout
@@ -129,7 +139,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1.5"
                 android:text="@string/promo_applied"
-                android:textColor="@color/dark_gray" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1"/>
 
             <TextView
                 android:id="@+id/tvPCAmount"
@@ -137,7 +148,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="end"
-                android:textColor="@color/dark_gray" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -151,7 +163,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/wallet_balance1"
-                android:textColor="@color/dark_gray" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1"/>
 
             <TextView
                 android:id="@+id/tvWallet"
@@ -159,13 +172,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="end"
-                android:textColor="@color/dark_gray" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/lytFinalTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5dp"
             android:orientation="horizontal">
 
             <TextView
@@ -173,9 +188,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/final_total"
-                android:textColor="@color/black"
-                android:textSize="@dimen/mid_text"
-                android:textStyle="bold" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1"
+                android:textSize="@dimen/mid_text"/>
 
             <TextView
                 android:id="@+id/tvFinalTotal"
@@ -183,9 +198,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="end"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/mid_text"
-                android:textStyle="bold" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1"
+                android:textSize="@dimen/mid_text" />
         </LinearLayout>
     </LinearLayout>
 
@@ -193,18 +208,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="@dimen/dimen_35dp"
         android:weightSum="2">
 
         <TextView
             android:id="@+id/tvCancel"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dimen_50dp"
             android:layout_weight="1"
             android:gravity="center"
             android:padding="7dp"
             android:text="@string/cancel"
-            android:background="@color/gray"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:background="@drawable/be_green_curved_rad_8"
             android:textColor="@color/dark_gray" />
 
         <View
@@ -214,13 +230,13 @@
         <TextView
             android:id="@+id/tvConfirm"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dimen_50dp"
             android:layout_weight="1"
             android:gravity="center"
             android:padding="7dp"
             android:text="@string/confirm"
-            android:background="@color/colorPrimary"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:background="@drawable/bg_green_solid_curved_rad_8"
             android:textColor="@color/white" />
 
     </LinearLayout>

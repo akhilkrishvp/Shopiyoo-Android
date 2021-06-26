@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@color/white"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
         app:contentInsetStartWithNavigation="0dp"
@@ -27,7 +27,8 @@
         android:background="@color/white"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
-        android:padding="15dp">
+        android:padding="15dp"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/tvDelivery"
@@ -57,16 +58,16 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/confirmLyt"
         android:layout_below="@+id/processLyt"
-        android:layout_margin="@dimen/margin_5dp"
-
-        android:background="@color/bg_color"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginEnd="@dimen/dimen_16dp"
+        android:background="@color/white"
         android:fadeScrollbars="true"
         android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -79,9 +80,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/card_shadow"
-                    android:orientation="vertical"
-                    android:padding="@dimen/margin_10dp">
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -93,18 +92,21 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_toStartOf="@+id/imgedit"
-                            android:text="@string/Delivery_Address"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:fontFamily="@font/meiryo_bold"
+                            android:text="@string/deliver_to"
+                            android:textColor="@color/black"
                             android:textSize="@dimen/mid_text" />
 
-                        <ImageView
+                        <TextView
                             android:id="@+id/imgedit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:onClick="OnBtnClick"
-
-                            app:srcCompat="@drawable/ic_edit" />
+                            android:padding="@dimen/dimen_5dp"
+                            android:text="Edit"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/dimen_16sp" />
                     </RelativeLayout>
 
                     <TextView
@@ -112,24 +114,25 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/margin_10dp"
-                        android:textColor="@color/dark_gray"
+                        android:fontFamily="@font/meiryo"
+                        android:textColor="@color/txt_color_2"
                         android:textSize="@dimen/mid_text" />
 
                     <TextView
                         android:id="@+id/tvCity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_10dp"
                         android:layout_marginTop="2dp"
                         android:ems="10"
-                        android:textColor="@color/overlay_white" />
+                        android:fontFamily="@font/meiryo"
+                        android:textColor="@color/txt_color_2" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layoutDirection="ltr"
                         android:orientation="horizontal"
+                        android:visibility="gone"
                         android:weightSum="3">
 
                         <CheckBox
@@ -223,20 +226,26 @@
                         android:textSize="16sp" />
                 </LinearLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:background="@color/grey_2" />
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/card_shadow"
-                    android:padding="10dp">
+                    android:layout_marginTop="@dimen/dimen_16sp">
 
                     <TextView
                         android:id="@+id/tvMessage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_toStartOf="@+id/imgRefresh"
+                        android:fontFamily="@font/meiryo"
                         android:text="@string/promo_code_msg"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/mid_text" />
+                        android:textColor="@color/txt_color_1"
+                        android:textSize="@dimen/dimen_14sp" />
 
                     <ImageView
                         android:id="@+id/imgRefresh"
@@ -245,19 +254,31 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
+                        android:visibility="gone"
                         android:onClick="RefreshPromoCode"
-
                         app:srcCompat="@drawable/ic_refresh1" />
+
+                    <ImageView
+                        android:id="@+id/promoIcon"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:layout_below="@+id/tvMessage"
+                        android:layout_marginTop="31dp"
+                        android:src="@drawable/ic_promo_code" />
 
                     <EditText
                         android:id="@+id/edtPromoCode"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_below="@+id/tvMessage"
-                        android:layout_marginTop="-1dp"
-                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="@dimen/dimen_10dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="-5dp"
+                        android:textSize="@dimen/dimen_14sp"
                         android:layout_toStartOf="@+id/btnApply"
-                        android:background="@drawable/edt_bg"
+                        android:layout_toEndOf="@+id/promoIcon"
+                        android:background="@drawable/bg_bottom_border"
+                        android:fontFamily="@font/meiryo"
                         android:hint="@string/promo_code"
                         android:padding="@dimen/margin_10dp" />
 
@@ -268,7 +289,9 @@
                         android:layout_alignBaseline="@+id/edtPromoCode"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="@dimen/margin_10dp"
-                        android:background="@color/colorAccent"
+                        android:textSize="@dimen/dimen_14sp"
+                        android:background="@drawable/bg_green_solid_curved_rad_8"
+                        android:fontFamily="@font/meiryo"
                         android:minHeight="0dp"
                         android:padding="@dimen/margin_5dp"
                         android:text="@string/apply"
@@ -298,20 +321,27 @@
 
                 </RelativeLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:background="@color/grey_2" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/meiryo_bold"
                         android:padding="2dp"
                         android:text="@string/order_list"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/mid_text" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_14sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -326,7 +356,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.5"
+                            android:fontFamily="@font/meiryo"
                             android:text="@string/product_name"
+                            android:textSize="@dimen/dimen_14sp"
                             android:textAlignment="viewStart"
                             android:textColor="@color/black" />
 
@@ -334,7 +366,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.7"
+                            android:fontFamily="@font/meiryo"
                             android:text="@string/qty"
+                            android:textSize="@dimen/dimen_14sp"
                             android:textAlignment="center"
                             android:textColor="@color/black" />
 
@@ -342,7 +376,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.8"
+                            android:fontFamily="@font/meiryo"
                             android:text="@string/price"
+                            android:textSize="@dimen/dimen_14sp"
                             android:textAlignment="center"
                             android:textColor="@color/black" />
 
@@ -350,7 +386,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/meiryo"
                             android:text="@string/total_amt"
+                            android:textSize="@dimen/dimen_14sp"
                             android:textAlignment="viewEnd"
                             android:textColor="@color/black" />
                     </LinearLayout>
@@ -364,35 +402,42 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@color/overlay_white" />
+                        android:layout_height="@dimen/dimen_10dp"
+                        android:layout_marginTop="@dimen/dimen_16dp"
+                        android:background="@color/grey_2" />
 
                     <LinearLayout
                         android:id="@+id/lytamt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_16dp"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
-                            android:text="@string/total_amt" />
+                            android:fontFamily="@font/meiryo"
+                            android:text="@string/total_amt"
+                            android:textSize="@dimen/dimen_14sp"
+                            android:textColor="@color/txt_color_1" />
 
                         <TextView
                             android:id="@+id/tvTotal"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:gravity="end" />
+                            android:fontFamily="@font/meiryo"
+                            android:gravity="end"
+                            android:textSize="@dimen/dimen_14sp"
+                            android:textColor="@color/txt_color_1" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/lytTax"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_2dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -400,54 +445,74 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
-                            android:text="@string/tax" />
+                            android:fontFamily="@font/meiryo"
+                            android:text="@string/gst"
+                            android:textSize="@dimen/dimen_14sp"
+                            android:textColor="@color/txt_color_1" />
 
                         <TextView
                             android:id="@+id/tvTaxAmt"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:gravity="end" />
+                            android:textSize="@dimen/dimen_14sp"
+                            android:fontFamily="@font/meiryo"
+                            android:gravity="end"
+                            android:textColor="@color/txt_color_1" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/lytdelivery"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_2dp"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
-                            android:text="@string/delivery_charge" />
+                            android:fontFamily="@font/meiryo"
+                            android:text="@string/delivery_charge"
+                            android:textSize="@dimen/dimen_14sp"
+                            android:textColor="@color/txt_color_1" />
 
                         <TextView
                             android:id="@+id/tvDeliveryCharge"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:gravity="end" />
+                            android:fontFamily="@font/meiryo"
+                            android:gravity="end"
+                            android:textSize="@dimen/dimen_14sp"
+                            android:textColor="@color/txt_color_1" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/lytWallet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_2dp"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.5"
-                            android:text="@string/wallet_balance" />
+                            android:fontFamily="@font/meiryo"
+                            android:text="@string/wallet_balance"
+                            android:textSize="@dimen/dimen_14sp"
+                            android:textColor="@color/txt_color_1" />
 
                         <TextView
                             android:id="@+id/tvWallet"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:gravity="end" />
+                            android:fontFamily="@font/meiryo"
+                            android:gravity="end"
+                            android:textSize="@dimen/dimen_14sp"
+                            android:textColor="@color/txt_color_1" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -485,7 +550,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-
                 android:visibility="gone">
 
 
@@ -493,8 +557,8 @@
                     android:id="@+id/walletLyt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/card_shadow"
-                    android:padding="@dimen/margin_10dp">
+                    android:paddingTop="@dimen/margin_10dp"
+                    android:paddingBottom="@dimen/dimen_10dp">
 
                     <ImageView
                         android:id="@+id/imgWallet"
@@ -503,7 +567,7 @@
                         android:layout_centerVertical="true"
                         android:layout_margin="@dimen/margin_5dp"
                         android:padding="@dimen/margin_10dp"
-                        app:srcCompat="@drawable/ic_wallet" />
+                        app:srcCompat="@drawable/ic_wallet_new" />
 
                     <LinearLayout
                         android:id="@+id/balanceLyt"
@@ -519,31 +583,42 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/wallet_balance"
-                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/dimen_14sp"
+                            android:fontFamily="@font/meiryo_bold"
+                            android:textColor="@color/black"
                             android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/tvWltBalance"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/dark_gray" />
+                            android:fontFamily="@font/meiryo"
+                            android:textColor="@color/txt_color_1" />
                     </LinearLayout>
 
                     <CheckBox
                         android:id="@+id/chWallet"
+                        android:theme="@style/myRadioButton"
+                        android:checked="false"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true" />
                 </RelativeLayout>
 
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:background="@color/grey_2" />
+
                 <LinearLayout
                     android:id="@+id/deliveryTimeLyt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/card_shadow"
                     android:orientation="vertical"
-                    android:padding="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/dimen_16dp"
                     android:visibility="visible">
 
 
@@ -559,8 +634,9 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
                             android:text="@string/select_delivery_date"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/mid_text" />
+                            android:textSize="@dimen/dimen_14sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/meiryo_bold" />
 
                         <LinearLayout
                             android:id="@+id/dayLyt"
@@ -577,6 +653,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:padding="5dp"
+                                android:theme="@style/myRadioButton"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/txt_color_1"
                                 android:text="@string/today" />
 
                             <RadioButton
@@ -585,6 +664,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:padding="5dp"
+                                android:theme="@style/myRadioButton"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/txt_color_1"
                                 android:text="@string/tomorrow" />
                         </LinearLayout>
 
@@ -595,8 +677,9 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
                             android:text="@string/deliverytime"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/mid_text" />
+                            android:textSize="@dimen/dimen_14sp"
+                            android:fontFamily="@font/meiryo_bold"
+                            android:textColor="@color/black" />
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recyclerView"
@@ -608,14 +691,20 @@
                     </LinearLayout>
                 </LinearLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:background="@color/grey_2" />
+
                 <LinearLayout
                     android:id="@+id/lytPayOption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin_10dp"
-                    android:background="@drawable/card_shadow"
-                    android:orientation="vertical"
-                    android:padding="@dimen/margin_10dp">
+                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:orientation="vertical">
 
 
                     <TextView
@@ -625,40 +714,34 @@
                         android:layout_marginTop="@dimen/margin_10dp"
                         android:layout_marginBottom="@dimen/margin_10dp"
                         android:text="@string/payment_mathod"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/mid_text" />
+                        android:fontFamily="@font/meiryo_bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen_14sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:padding="@dimen/margin_5dp"
-                        android:weightSum="4">
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:src="@drawable/cod" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="2.5"
-                            android:text="@string/cod_pay"
-                            android:textColor="@color/txt_color"
-                            android:textSize="@dimen/mid_text" />
+                        android:padding="@dimen/margin_5dp">
 
                         <RadioButton
                             android:id="@+id/rbcod"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:padding="@dimen/margin_10dp"
                             android:tag="@string/codpaytype"
+                            android:textSize="@dimen/dimen_14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/cod_pay"
+                            android:paddingStart="@dimen/dimen_16sp"
+                            android:fontFamily="@font/meiryo"
+                            android:textColor="@color/txt_color"
                             android:textSize="@dimen/mid_text" />
+
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -692,6 +775,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_weight="2.5"
                                 android:text="@string/pay_u_pay"
+                                android:fontFamily="@font/meiryo"
                                 android:textColor="@color/txt_color"
                                 android:textSize="@dimen/mid_text" />
 
@@ -721,33 +805,24 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:padding="@dimen/margin_5dp"
-                            android:weightSum="4">
-
-                            <ImageView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_weight="1"
-                                android:src="@drawable/razorpay" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_weight="2.5"
-                                android:text="@string/razor_payment"
-                                android:textColor="@color/txt_color"
-                                android:textSize="@dimen/mid_text" />
-
+                            android:padding="@dimen/margin_5dp">
                             <RadioButton
                                 android:id="@+id/rbRazorPay"
-                                android:layout_width="0dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:padding="@dimen/margin_10dp"
                                 android:tag="@string/razor_pay"
                                 android:textSize="@dimen/mid_text" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="@string/razor_payment"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/txt_color"
+                                android:textSize="@dimen/mid_text" />
+
                         </LinearLayout>
                     </LinearLayout>
 
@@ -782,6 +857,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_weight="2.5"
                                 android:text="@string/paypal_pay"
+                                android:fontFamily="@font/meiryo"
                                 android:textColor="@color/txt_color"
                                 android:textSize="@dimen/mid_text" />
 
@@ -807,9 +883,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/white"
-
+        android:background="@drawable/bg_green_solid_curved_rad_8"
         android:minHeight="?attr/actionBarSize"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:layout_marginEnd="@dimen/dimen_16dp"
+        android:layout_marginBottom="@dimen/dimen_16dp"
         android:paddingStart="@dimen/margin_10dp"
         android:paddingEnd="@dimen/margin_10dp">
 
@@ -820,8 +898,9 @@
             android:layout_centerVertical="true"
             android:drawablePadding="@dimen/margin_5dp"
             android:text="@string/total"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_16sp"
+            android:fontFamily="@font/meiryo_bold"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <TextView
@@ -829,9 +908,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:textSize="@dimen/dimen_16sp"
+            android:fontFamily="@font/meiryo_bold"
             android:layout_toEndOf="@+id/tvPreTotal"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/black" />
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/tvConfirmOrder"
@@ -842,6 +922,7 @@
             android:background="@drawable/confirm_bg"
             android:drawablePadding="@dimen/margin_10dp"
             android:gravity="center"
+            android:fontFamily="@font/meiryo_bold"
             android:onClick="OnBtnClick"
             android:paddingStart="@dimen/margin_10dp"
             android:paddingTop="7dp"
@@ -857,15 +938,14 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/process_bg"
-            android:drawablePadding="@dimen/margin_10dp"
             android:gravity="center"
+            android:fontFamily="@font/meiryo_bold"
             android:onClick="OnBtnClick"
             android:paddingStart="@dimen/margin_10dp"
             android:paddingTop="7dp"
             android:paddingEnd="@dimen/margin_10dp"
             android:paddingBottom="7dp"
-            android:text="@string/proceed"
+            android:text="@string/pay"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:visibility="gone" />

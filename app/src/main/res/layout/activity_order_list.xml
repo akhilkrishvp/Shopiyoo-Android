@@ -5,17 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context="customers.com.shopiyoo.activity.OrderListActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        app:contentInsetStartWithNavigation="0dp"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <include layout="@layout/toolbar_layout" />
 
     <LinearLayout
         android:id="@+id/lytdata"
@@ -31,7 +24,7 @@
             android:background="@color/colorPrimary"
             android:overScrollMode="never"
             app:tabGravity="fill"
-
+            android:visibility="gone"
             app:tabMode="scrollable"
             app:tabSelectedTextColor="@color/white"
             app:tabTextAppearance="@style/TabLayoutStyle"

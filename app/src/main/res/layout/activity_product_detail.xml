@@ -9,7 +9,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@color/white"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
         app:contentInsetStartWithNavigation="0dp"
@@ -42,9 +42,10 @@
 
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/viewPager"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_width="330dp"
+                    android:layout_height="330dp"
                     android:layout_below="@+id/imgIndicator"
+                    android:layout_centerHorizontal="true"
                     android:clipToPadding="false" />
 
                 <LinearLayout
@@ -59,18 +60,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp">
 
                     <LinearLayout
                         android:id="@+id/lytsave"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/dimen_16dp"
                         android:gravity="center_vertical"
                         android:onClick="OnBtnClick"
                         android:orientation="horizontal"
@@ -81,19 +83,22 @@
                             android:id="@+id/imgFav"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/ic_favorite_not" />
+                            app:srcCompat="@drawable/ic_lc_heart" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
-                            android:text="@string/fav_text" />
+                            android:fontFamily="@font/meiryo"
+                            android:text="@string/fav_text"
+                            android:textColor="@color/txt_color_1" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/lytshare"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:layout_toStartOf="@+id/lytsimilarproducts"
                         android:layout_toEndOf="@+id/lytsave"
                         android:gravity="center"
@@ -112,7 +117,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
-                            android:text="@string/share_text" />
+                            android:fontFamily="@font/meiryo"
+                            android:text="@string/share_text"
+                            android:textColor="@color/txt_color_1" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -121,6 +128,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dimen_16dp"
                         android:gravity="center_vertical"
                         android:onClick="OnBtnClick"
                         android:orientation="horizontal"
@@ -136,14 +144,28 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
-                            android:text="@string/similarproduct" />
+                            android:fontFamily="@font/meiryo"
+                            android:text="@string/similarproduct"
+                            android:textColor="@color/txt_color_1" />
                     </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:alpha="0.5"
+                        android:background="@color/divider_line_color"
+                        android:layout_marginTop="@dimen/dimen_16dp"
+                        android:layout_below="@+id/lytsimilarproducts"/>
                 </RelativeLayout>
 
                 <TextView
                     android:id="@+id/txtproductname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/meiryo_bold"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_16dp"
                     android:textColor="@color/black" />
 
                 <RelativeLayout
@@ -151,6 +173,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
                     android:onClick="OnBtnClick">
 
                     <LinearLayout
@@ -164,22 +188,26 @@
                             android:id="@+id/txtoriginalprice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="3dp" />
+                            android:fontFamily="@font/meiryo"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dimen_14sp"/>
 
                         <TextView
                             android:id="@+id/txtprice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="1dp"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                            android:textColor="@color/black"
-                            android:textStyle="bold" />
+                            android:fontFamily="@font/meiryo_bold"
+                            android:textSize="@dimen/dimen_14sp"
+                            android:textColor="@color/black" />
 
                         <TextView
                             android:id="@+id/txtdiscountPrice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="3dp"
+                            android:fontFamily="@font/meiryo"
+                            android:textSize="@dimen/dimen_14sp"
                             android:textColor="@color/green" />
 
                         <TextView
@@ -187,6 +215,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="3dp"
+                            android:fontFamily="@font/meiryo"
+                            android:textSize="@dimen/dimen_14sp"
                             android:textColor="@color/black" />
                     </LinearLayout>
 
@@ -199,6 +229,7 @@
                         android:background="@drawable/bg_border"
                         android:drawablePadding="10dp"
                         android:padding="3dp"
+                        android:visibility="gone"
                         android:text="@string/more_variants"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/small_size" />
@@ -227,11 +258,13 @@
                     android:id="@+id/lytqty"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
                     android:orientation="vertical">
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="3dp"
+                        android:layout_height="1dp"
                         android:layout_marginTop="10dp"
                         android:background="@color/bggray" />
 
@@ -241,12 +274,14 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
                         android:text="@string/quantity"
+                        android:visibility="gone"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_16dp"
                         android:layout_gravity="center_horizontal"
                         android:gravity="center">
 
@@ -257,7 +292,7 @@
                             android:background="@android:color/transparent"
                             android:onClick="OnBtnClick"
                             android:padding="7dp"
-                            app:srcCompat="@drawable/ic_remove" />
+                            app:srcCompat="@drawable/ic_minus" />
 
                         <TextView
                             android:id="@+id/txtqty"
@@ -291,6 +326,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
+                    android:visibility="gone"
                     android:text="@string/product_details"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
@@ -300,6 +336,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
+                    android:visibility="gone"
                     android:textSize="14sp" />
 
             </LinearLayout>
@@ -312,9 +349,12 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/bg_green_solid_curved_rad_8"
         android:gravity="center"
         android:onClick="OnBtnClick"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:layout_marginEnd="@dimen/dimen_16dp"
+        android:layout_marginBottom="@dimen/dimen_16dp"
         android:padding="10dp"
         android:text="@string/buynow"
         android:textAllCaps="false"
