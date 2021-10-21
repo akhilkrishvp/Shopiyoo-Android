@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/txt_color_1"
+        android:button="@drawable/check_box_selector"
         android:fontFamily="@font/meiryo"
         />
 </LinearLayout>

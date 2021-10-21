@@ -217,11 +217,11 @@ public class OrderListActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new OrderTrackerListFragment(), tabs[0]);
-        adapter.addFrag(new OrderTrackerListFragment(), tabs[1]);
+        /*adapter.addFrag(new OrderTrackerListFragment(), tabs[1]);
         adapter.addFrag(new OrderTrackerListFragment(), tabs[2]);
         adapter.addFrag(new OrderTrackerListFragment(), tabs[3]);
         adapter.addFrag(new OrderTrackerListFragment(), tabs[4]);
-        adapter.addFrag(new OrderTrackerListFragment(), tabs[5]);
+        adapter.addFrag(new OrderTrackerListFragment(), tabs[5]);*/
         viewPager.setAdapter(adapter);
     }
 

@@ -61,7 +61,7 @@ public class DrawerActivity extends AppCompatActivity {
             tvName.setText(session.getData(Session.KEY_NAME));
             tvMobile.setText(session.getData(Session.KEY_MOBILE));
             lytWallet.setVisibility(View.VISIBLE);
-            tvWallet.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_wallet_white, 0, 0, 0);
+            tvWallet.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_wallet_new, 0, 0, 0);
             DrawerActivity.tvWallet.setText(getString(R.string.wallet_balance) + "\t:\t" + Constant.SETTING_CURRENCY_SYMBOL + Constant.WALLET_BALANCE);
             ApiConfig.getWalletBalance(DrawerActivity.this, session);
             tvWallet.setText(getString(R.string.wallet_balance)+"\t:\t"+ApiConfig.getWalletBalance(DrawerActivity.this, session));;

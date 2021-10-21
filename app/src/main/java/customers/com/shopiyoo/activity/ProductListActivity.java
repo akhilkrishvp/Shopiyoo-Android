@@ -116,6 +116,7 @@ public class ProductListActivity extends AppCompatActivity {
     }
 
     private void GetData(final int startoffset) {
+        progressBar.setVisibility(View.VISIBLE);
         Map<String, String> params = new HashMap<>();
         params.put(Constant.SUB_CATEGORY_ID, id);
         params.put(Constant.LIMIT, Constant.LOAD_ITEM_LIMIT);
@@ -126,7 +127,7 @@ public class ProductListActivity extends AppCompatActivity {
         ApiConfig.RequestToVolley(new VolleyCallback() {
             @Override
             public void onSuccess(boolean result, String response) {
-
+                progressBar.setVisibility(View.GONE);
                 if (result) {
                     try {
                         System.out.println("====product  " + response);

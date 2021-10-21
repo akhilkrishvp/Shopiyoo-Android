@@ -60,7 +60,7 @@ public class TrackerDetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setTitle("OrderId #"+order.getOrder_id());
         pBar = findViewById(R.id.pBar);
         lytPriceDetail = findViewById(R.id.lytPriceDetail);
         lytPromo = findViewById(R.id.lytPromo);

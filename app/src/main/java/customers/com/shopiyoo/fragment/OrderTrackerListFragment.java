@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import customers.com.shopiyoo.R;
 import customers.com.shopiyoo.activity.OrderListActivity;
+import customers.com.shopiyoo.adapter.AdapterMyOrderList;
 import customers.com.shopiyoo.adapter.TrackerAdapter;
 import customers.com.shopiyoo.helper.Session;
 import customers.com.shopiyoo.model.OrderTracker;
@@ -64,7 +65,8 @@ public class OrderTrackerListFragment extends Fragment {
         if (orderTrackerArrayList.size() == 0)
             nodata.setVisibility(View.VISIBLE);
 
-        recyclerView.setAdapter(new TrackerAdapter(getActivity(), orderTrackerArrayList));
+
+        recyclerView.setAdapter(new AdapterMyOrderList(getActivity(), orderTrackerArrayList));
         progressbar.setVisibility(View.GONE);
         return v;
     }

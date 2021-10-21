@@ -184,7 +184,7 @@ public class MainActivity extends DrawerActivity {
                 if (AppController.isConnected(MainActivity.this)) {
                     ApiConfig.GetSettings(MainActivity.this);
                     GetSlider();
-                    GetCategoryById();
+                   // GetCategoryById();
                     SectionProductRequest();
                     GetOfferImage();
                     ApiConfig.displayLocationSettingsRequest(MainActivity.this);
@@ -325,6 +325,7 @@ public class MainActivity extends DrawerActivity {
         ApiConfig.RequestToVolley(new VolleyCallback() {
             @Override
             public void onSuccess(boolean result, String response) {
+
                 if (result) {
                     try {
                         // System.out.println("====res section " + response);

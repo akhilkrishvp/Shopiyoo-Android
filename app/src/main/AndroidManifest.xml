@@ -13,7 +13,7 @@
     <application
         android:name="customers.com.shopiyoo.helper.AppController"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -24,7 +24,8 @@
         <activity android:name="customers.com.shopiyoo.activity.DrawerActivity" />
         <activity android:name="customers.com.shopiyoo.activity.WebViewActivity" />
         <activity android:name="customers.com.shopiyoo.activity.MapActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.OrderListActivity" />
+        <activity android:name="customers.com.shopiyoo.activity.OrderListActivity"
+            android:hardwareAccelerated="true"/>
         <activity android:name="customers.com.shopiyoo.activity.TrackerDetailActivity" />
         <activity android:name="customers.com.shopiyoo.activity.OrderPlacedActivity" />
         <activity android:name="customers.com.shopiyoo.activity.CheckoutActivity" />

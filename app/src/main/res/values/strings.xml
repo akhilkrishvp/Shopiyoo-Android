@@ -195,7 +195,7 @@
     <string name="ordered_id">Ordered Id:&#160;</string>
     <string name="order_date">Order Date:&#160;</string>
     <string name="cancel_order">Cancel Order</string>
-    <string name="cancel_item">Cancel Item</string>
+    <string name="cancel_item">Cancel</string>
     <string name="cancel">Cancel</string>
     <string name="no_track_msg">No Tracking Found..!!</string>
     <string name="return_order">Return Item</string>

@@ -15,7 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="10dp"
             android:layout_marginEnd="5dp"
             android:layout_toEndOf="@+id/imgorder">
 
@@ -24,13 +24,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/name"
-                android:textColor="@color/black" />
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1" />
 
             <TextView
                 android:id="@+id/txtqtxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtname"
+                android:fontFamily="@font/meiryo"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:textColor="@color/txt_color_1"
                 android:text="@string/quantity_tracking" />
 
             <TextView
@@ -39,22 +43,37 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtname"
                 android:layout_marginStart="5dp"
+                android:fontFamily="@font/meiryo"
+                android:layout_marginTop="@dimen/dimen_10dp"
                 android:layout_toEndOf="@+id/txtqtxt"
-                android:textColor="@color/tracking_black" />
+                android:textColor="@color/txt_color_1" />
 
-            <Button
-                android:id="@+id/btnCancel"
-                style="@style/TextAppearance.AppCompat.Small"
+            <TextView
+                android:id="@+id/txtprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/txtname"
+                android:layout_alignStart="@+id/txtqty"
+                android:layout_marginStart="40dp"
+                android:text="asdv"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:fontFamily="@font/meiryo"
+                android:textColor="@color/txt_color_1"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:background="@color/colorAccent"
                 android:minHeight="0dp"
                 android:padding="3dp"
+                android:layout_marginBottom="@dimen/dimen_16dp"
+                android:fontFamily="@font/meiryo"
                 android:text="@string/cancel_item"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:textColor="@color/colorAccent"
                 android:visibility="gone" />
 
             <Button
@@ -73,15 +92,6 @@
                 android:textColor="@color/white"
                 android:visibility="gone" />
 
-            <TextView
-                android:id="@+id/txtprice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtqtxt"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtpaytype"
@@ -89,6 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtprice"
                 android:layout_marginTop="5dp"
+                android:visibility="gone"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/p_text_size"
                 android:textStyle="bold" />
@@ -100,6 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtpaytype"
                 android:textSize="14sp"
+                android:visibility="gone"
                 android:textStyle="bold" />
 
             <TextView
@@ -341,4 +353,11 @@
         </LinearLayout>
 
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:background="@color/divider_bg"
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"/>
+
 </LinearLayout>

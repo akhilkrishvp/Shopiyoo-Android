@@ -23,6 +23,7 @@ public class OrderPlacedActivity extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(OrderPlacedActivity.this);
         databaseHelper.DeleteAllOrderData();
         toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.black));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

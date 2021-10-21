@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -152,7 +153,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CartItemHold
                 holder.btnCancel.setVisibility(View.VISIBLE);
             }
 
-            holder.lyttracker.setVisibility(View.VISIBLE);
+           // holder.lyttracker.setVisibility(View.VISIBLE);
 
             if (order.getActiveStatus().equalsIgnoreCase("cancelled")) {
                 holder.lyttracker.setVisibility(View.GONE);
@@ -161,7 +162,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CartItemHold
                     holder.l4.setVisibility(View.VISIBLE);
                     holder.returnLyt.setVisibility(View.VISIBLE);
                 }
-                holder.lyttracker.setVisibility(View.VISIBLE);
+               // holder.lyttracker.setVisibility(View.VISIBLE);
 
                 ApiConfig.setOrderTrackerLayout(activity, order, holder);
             }
@@ -247,7 +248,8 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.CartItemHold
         NetworkImageView imgorder;
         CardView carddetail;
         RecyclerView recyclerView;
-        Button btnCancel, btnReturn;
+        Button  btnReturn;
+        AppCompatTextView btnCancel;
         View l4;
         LinearLayout lyttracker, returnLyt;
 

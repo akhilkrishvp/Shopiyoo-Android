@@ -72,15 +72,15 @@ import java.util.Map;
 
 import javax.crypto.spec.SecretKeySpec;
 
-import customers.com.shopiyoo.activity.DrawerActivity;
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import customers.com.shopiyoo.R;
+import customers.com.shopiyoo.activity.DrawerActivity;
 import customers.com.shopiyoo.model.OrderTracker;
 import customers.com.shopiyoo.model.PriceVariation;
 import customers.com.shopiyoo.model.Product;
 import customers.com.shopiyoo.model.Slider;
+import io.jsonwebtoken.JwtBuilder;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 public class ApiConfig {
     public static String user_location = "";
@@ -115,24 +115,26 @@ public class ApiConfig {
         final ProgressDisplay progressDisplay = new ProgressDisplay(activity);
 
         if (AppController.isConnected(activity)) {
-            /*if (isprogress)
-                progressDisplay.showProgress();*/
-            Log.e("Url...... ",url);
+//            if (isprogress)
+           // progressDisplay.showProgress();
+            Log.e("Url...... ", url);
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
+                    progressDisplay.hideProgress();
                     //System.out.println("================= " + url + " == " + response);
                     callback.onSuccess(true, response);
-                    if (isprogress)
-                        progressDisplay.hideProgress();
+                   /* if (isprogress)
+                        progressDisplay.hideProgress();*/
                 }
 
             },
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            if (isprogress)
-                                progressDisplay.hideProgress();
+                            progressDisplay.hideProgress();
+                           /* if (isprogress)
+                                progressDisplay.hideProgress();*/
 
                             callback.onSuccess(false, "");
                             String message = VolleyErrorMessage(error);
@@ -261,7 +263,7 @@ public class ApiConfig {
                             } else {
                                 int quantity = Integer.parseInt(qty);
                                 double totalprice = Double.parseDouble(decimalFormat.format(quantity * Double.parseDouble(productPrice)));
-                                databaseHelper.UpdateOrderData(obj.getString(Constant.ID), obj.getString(Constant.PRODUCT_ID),qty, totalprice, obj.getString(Constant.MEASUREMENT) +  obj.getString(Constant.MEASUREMENT_UNIT_ID) + "==" + jsonObject.getString(Constant.NAME) + "==" + productPrice.split("=")[0]);
+                                databaseHelper.UpdateOrderData(obj.getString(Constant.ID), obj.getString(Constant.PRODUCT_ID), qty, totalprice, obj.getString(Constant.MEASUREMENT) + obj.getString(Constant.MEASUREMENT_UNIT_ID) + "==" + jsonObject.getString(Constant.NAME) + "==" + productPrice.split("=")[0]);
                                 priceVariations.add(new PriceVariation(obj.getString(Constant.ID), obj.getString(Constant.PRODUCT_ID), obj.getString(Constant.TYPE), obj.getString(Constant.MEASUREMENT), obj.getString(Constant.MEASUREMENT_UNIT_ID), productPrice, obj.getString(Constant.PRICE), obj.getString(Constant.DISCOUNTED_PRICE), obj.getString(Constant.SERVE_FOR), obj.getString(Constant.STOCK), obj.getString(Constant.STOCK_UNIT_ID), obj.getString(Constant.MEASUREMENT_UNIT_NAME), obj.getString(Constant.STOCK_UNIT_NAME), discountpercent, quantity, totalprice));
                             }
                             break;

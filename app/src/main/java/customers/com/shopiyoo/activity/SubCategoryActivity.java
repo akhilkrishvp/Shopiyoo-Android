@@ -43,6 +43,7 @@ public class SubCategoryActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.black));
         cateId = getIntent().getStringExtra("id");
         cateName = getIntent().getStringExtra("name");
 

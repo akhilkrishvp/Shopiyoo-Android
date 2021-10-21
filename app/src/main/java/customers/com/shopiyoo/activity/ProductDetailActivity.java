@@ -257,12 +257,20 @@ public class ProductDetailActivity extends AppCompatActivity {
                 public void onNothingSelected(AdapterView<?> adapterView) {
                 }
             });
-
-
+            setCartBtnVisibility();
             ApiConfig.SetFavOnImg(databaseHelper, imgFav, product.getId());
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void setCartBtnVisibility() {
+        int addQty = Integer.parseInt(databaseHelper.CheckOrderExists(priceVariation.getId(), product.getId()));
+        if (addQty > 0) {
+            btncart.setVisibility(View.VISIBLE);
+        } else {
+            btncart.setVisibility(View.GONE);
         }
     }
 
@@ -293,76 +301,84 @@ public class ProductDetailActivity extends AppCompatActivity {
                 break;
             case R.id.btnaddqty:
 
-                double addQty = Double.parseDouble(databaseHelper.CheckOrderExists(priceVariation.getId(), product.getId())) ;
-                Log.e("Max Qty : ", product.getMaxPurchaseQty());
-                Log.e("Add Qty : ", String.valueOf(addQty));
-
-                if (product.getMaxPurchaseQty().equals("null")) {
-                    if (priceVariation.getType().equals("loose")) {
-                        String measurement = priceVariation.getMeasurement_unit_name();
-
-                        if (measurement.equals("kg") || measurement.equals("ltr") || measurement.equals("gm") || measurement.equals("ml")) {
-                            double totalKg;
-                            if (measurement.equals("kg") || measurement.equals("ltr"))
-                                totalKg = (Integer.parseInt(priceVariation.getMeasurement()) * 1000);
-                            else
-                                totalKg = (Integer.parseInt(priceVariation.getMeasurement()));
-                            double cartKg = ((databaseHelper.getTotalKG(product.getId()) + totalKg) / 1000);
-
-                            if (cartKg <= product.getGlobalStock()) {
-                                txtqty.setText(databaseHelper.AddUpdateOrder(priceVariation.getId(), product.getId(), true, ProductDetailActivity.this, false, Double.parseDouble(priceVariation.getProductPrice()), priceVariation.getMeasurement() + priceVariation.getMeasurement_unit_name() + "==" + product.getName() + "==" + priceVariation.getProductPrice()).split("=")[0]);
-                            } else {
-                                Toast.makeText(getApplicationContext(), getString(R.string.kg_limit), Toast.LENGTH_LONG).show();
-                            }
-                        } else {
-                            RegularCartAdd();
-                        }
-
-
-                    } else {
-                        RegularCartAdd();
-                    }
-                } else if (!product.getMaxPurchaseQty().equals("null")) {
-                    if (Double.parseDouble(product.getMaxPurchaseQty()) != addQty) {
-                        if (priceVariation.getType().equals("loose")) {
-                        String measurement = priceVariation.getMeasurement_unit_name();
-
-                            if (measurement.equals("kg") || measurement.equals("ltr") || measurement.equals("gm") || measurement.equals("ml")) {
-                                double totalKg;
-                                if (measurement.equals("kg") || measurement.equals("ltr"))
-                                    totalKg = (Integer.parseInt(priceVariation.getMeasurement()) * 1000);
-                                else
-                                    totalKg = (Integer.parseInt(priceVariation.getMeasurement()));
-                                double cartKg = ((databaseHelper.getTotalKG(product.getId()) + totalKg) / 1000);
-
-                                if (cartKg <= product.getGlobalStock()) {
-                                    txtqty.setText(databaseHelper.AddUpdateOrder(priceVariation.getId(), product.getId(), true, ProductDetailActivity.this, false, Double.parseDouble(priceVariation.getProductPrice()), priceVariation.getMeasurement() + priceVariation.getMeasurement_unit_name() + "==" + product.getName() + "==" + priceVariation.getProductPrice()).split("=")[0]);
-                                } else {
-                                    Toast.makeText(getApplicationContext(), getString(R.string.kg_limit), Toast.LENGTH_LONG).show();
-                                }
-                            } else {
-                                RegularCartAdd();
-                            }
-
-
-                        } else {
-                            RegularCartAdd();
-                        }
-                    } else if (Double.parseDouble(product.getMaxPurchaseQty()) == addQty) {
-                        Toast.makeText(getApplicationContext(), "Max Purchase Product limit " + product.getMaxPurchaseQty(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-                invalidateOptionsMenu();
+                doAddToCartButtonClick();
                 break;
         }
 
     }
 
+    private void doAddToCartButtonClick() {
+        double addQty = Double.parseDouble(databaseHelper.CheckOrderExists(priceVariation.getId(), product.getId()));
+        Log.e("Max Qty : ", product.getMaxPurchaseQty());
+        Log.e("Add Qty : ", String.valueOf(addQty));
+
+        if (product.getMaxPurchaseQty().equals("null")) {
+            if (priceVariation.getType().equals("loose")) {
+                String measurement = priceVariation.getMeasurement_unit_name();
+
+                if (measurement.equals("kg") || measurement.equals("ltr") || measurement.equals("gm") || measurement.equals("ml")) {
+                    double totalKg;
+                    if (measurement.equals("kg") || measurement.equals("ltr"))
+                        totalKg = (Integer.parseInt(priceVariation.getMeasurement()) * 1000);
+                    else
+                        totalKg = (Integer.parseInt(priceVariation.getMeasurement()));
+                    double cartKg = ((databaseHelper.getTotalKG(product.getId()) + totalKg) / 1000);
+
+                    if (cartKg <= product.getGlobalStock()) {
+                        String qtyStr = databaseHelper.AddUpdateOrder(priceVariation.getId(), product.getId(), true, ProductDetailActivity.this, false, Double.parseDouble(priceVariation.getProductPrice()), priceVariation.getMeasurement() + priceVariation.getMeasurement_unit_name() + "==" + product.getName() + "==" + priceVariation.getProductPrice()).split("=")[0];
+                        txtqty.setText(qtyStr);
+                        setCartBtnVisibility();
+                    } else {
+                        Toast.makeText(getApplicationContext(), getString(R.string.kg_limit), Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    RegularCartAdd();
+                }
+
+
+            } else {
+                RegularCartAdd();
+            }
+        } else if (!product.getMaxPurchaseQty().equals("null")) {
+            if (Double.parseDouble(product.getMaxPurchaseQty()) != addQty) {
+                if (priceVariation.getType().equals("loose")) {
+                    String measurement = priceVariation.getMeasurement_unit_name();
+
+                    if (measurement.equals("kg") || measurement.equals("ltr") || measurement.equals("gm") || measurement.equals("ml")) {
+                        double totalKg;
+                        if (measurement.equals("kg") || measurement.equals("ltr"))
+                            totalKg = (Integer.parseInt(priceVariation.getMeasurement()) * 1000);
+                        else
+                            totalKg = (Integer.parseInt(priceVariation.getMeasurement()));
+                        double cartKg = ((databaseHelper.getTotalKG(product.getId()) + totalKg) / 1000);
+
+                        if (cartKg <= product.getGlobalStock()) {
+                            txtqty.setText(databaseHelper.AddUpdateOrder(priceVariation.getId(), product.getId(), true, ProductDetailActivity.this, false, Double.parseDouble(priceVariation.getProductPrice()), priceVariation.getMeasurement() + priceVariation.getMeasurement_unit_name() + "==" + product.getName() + "==" + priceVariation.getProductPrice()).split("=")[0]);
+                        } else {
+                            Toast.makeText(getApplicationContext(), getString(R.string.kg_limit), Toast.LENGTH_LONG).show();
+                        }
+                    } else {
+                        RegularCartAdd();
+                    }
+
+
+                } else {
+                    RegularCartAdd();
+                }
+            } else if (Double.parseDouble(product.getMaxPurchaseQty()) == addQty) {
+                Toast.makeText(getApplicationContext(), "Max Purchase Product limit " + product.getMaxPurchaseQty(), Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        invalidateOptionsMenu();
+    }
+
     public void RegularCartAdd() {
-        if (Double.parseDouble(databaseHelper.CheckOrderExists(priceVariation.getId(), product.getId())) < Double.parseDouble(priceVariation.getStock()))
-            txtqty.setText(databaseHelper.AddUpdateOrder(priceVariation.getId(), product.getId(), true, ProductDetailActivity.this, false, Double.parseDouble(priceVariation.getProductPrice()), priceVariation.getMeasurement() + priceVariation.getMeasurement_unit_name() + "==" + product.getName() + "==" + priceVariation.getProductPrice()).split("=")[0]);
-        else
+        if (Double.parseDouble(databaseHelper.CheckOrderExists(priceVariation.getId(), product.getId())) < Double.parseDouble(priceVariation.getStock())) {
+            txtqty.setText(databaseHelper.AddUpdateOrder(priceVariation.getId(), product.getId(), true, ProductDetailActivity.this, false,
+                    Double.parseDouble(priceVariation.getProductPrice()), priceVariation.getMeasurement() + priceVariation.getMeasurement_unit_name() + "==" + product.getName() + "==" + priceVariation.getProductPrice()).split("=")[0]);
+            setCartBtnVisibility();
+        } else
             Toast.makeText(ProductDetailActivity.this, getResources().getString(R.string.stock_limit), Toast.LENGTH_SHORT).show();
     }
 
@@ -491,9 +507,13 @@ public class ProductDetailActivity extends AppCompatActivity {
         if (priceVariation.getServe_for().equalsIgnoreCase(Constant.SOLDOUT_TEXT)) {
             txtstatus.setVisibility(View.VISIBLE);
             lytqty.setVisibility(View.GONE);
+            btncart.setAlpha(0.2f);
+            btncart.setClickable(false);
         } else {
             txtstatus.setVisibility(View.INVISIBLE);
             lytqty.setVisibility(View.VISIBLE);
+            btncart.setAlpha(1f);
+            btncart.setClickable(true);
         }
 
         txtqty.setText(databaseHelper.CheckOrderExists(priceVariation.getId(), product.getId()));

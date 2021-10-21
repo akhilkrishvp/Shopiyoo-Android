@@ -653,7 +653,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:padding="5dp"
-                                android:theme="@style/myRadioButton"
+                                android:button="@drawable/check_box_selector"
                                 android:fontFamily="@font/meiryo"
                                 android:textColor="@color/txt_color_1"
                                 android:text="@string/today" />
@@ -664,7 +664,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:padding="5dp"
-                                android:theme="@style/myRadioButton"
+                                android:button="@drawable/check_box_selector"
                                 android:fontFamily="@font/meiryo"
                                 android:textColor="@color/txt_color_1"
                                 android:text="@string/tomorrow" />
@@ -729,13 +729,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:tag="@string/codpaytype"
+                            android:paddingStart="@dimen/dimen_16dp"
+                            android:text="@string/cod_pay"
+                            android:button="@drawable/check_box_selector"
                             android:textSize="@dimen/dimen_14sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="@string/cod_pay"
                             android:paddingStart="@dimen/dimen_16sp"
                             android:fontFamily="@font/meiryo"
                             android:textColor="@color/txt_color"
@@ -753,6 +755,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1.5dp"
+                            android:visibility="gone"
                             android:background="@color/bg_color" />
 
                         <LinearLayout
@@ -799,6 +802,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1.5dp"
+                            android:visibility="gone"
                             android:background="@color/bg_color" />
 
                         <LinearLayout
@@ -810,7 +814,9 @@
                                 android:id="@+id/rbRazorPay"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:padding="@dimen/margin_10dp"
+                                android:text="@string/razor_payment"
+                                android:paddingStart="@dimen/dimen_16sp"
+                                android:button="@drawable/check_box_selector"
                                 android:tag="@string/razor_pay"
                                 android:textSize="@dimen/mid_text" />
 
@@ -818,7 +824,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:text="@string/razor_payment"
                                 android:fontFamily="@font/meiryo"
                                 android:textColor="@color/txt_color"
                                 android:textSize="@dimen/mid_text" />

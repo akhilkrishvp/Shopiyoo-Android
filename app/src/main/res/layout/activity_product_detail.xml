@@ -190,16 +190,16 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/meiryo"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/dimen_14sp"/>
+                            android:textSize="@dimen/dimen_14sp" />
 
                         <TextView
                             android:id="@+id/txtprice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="1dp"
                             android:fontFamily="@font/meiryo_bold"
-                            android:textSize="@dimen/dimen_14sp"
-                            android:textColor="@color/black" />
+                            android:padding="1dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dimen_14sp" />
 
                         <TextView
                             android:id="@+id/txtdiscountPrice"
@@ -207,8 +207,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="3dp"
                             android:fontFamily="@font/meiryo"
-                            android:textSize="@dimen/dimen_14sp"
-                            android:textColor="@color/green" />
+                            android:textColor="@color/green"
+                            android:textSize="@dimen/dimen_14sp" />
 
                         <TextView
                             android:id="@+id/txtmeasurement"
@@ -216,8 +216,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="3dp"
                             android:fontFamily="@font/meiryo"
-                            android:textSize="@dimen/dimen_14sp"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dimen_14sp" />
                     </LinearLayout>
 
                     <TextView
@@ -252,7 +252,9 @@
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                     android:textColor="@color/red"
                     android:textStyle="bold"
-                    android:visibility="visible" />
+                    android:visibility="visible"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"/>
 
                 <LinearLayout
                     android:id="@+id/lytqty"

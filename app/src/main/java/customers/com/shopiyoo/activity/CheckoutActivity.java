@@ -252,6 +252,34 @@ public class CheckoutActivity extends AppCompatActivity implements OnMapReadyCal
 
             }
         });
+        walletLyt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (chWallet.getTag().equals("false")) {
+                    chWallet.setChecked(true);
+                    lytWallet.setVisibility(View.VISIBLE);
+
+                    if (Constant.WALLET_BALANCE >= subtotal) {
+                        usedBalance = subtotal;
+                        tvWltBalance.setText(getString(R.string.remaining_wallet_balance) + Constant.SETTING_CURRENCY_SYMBOL + (Constant.WALLET_BALANCE - usedBalance));
+                        paymentMethod = "wallet";
+                        lytPayOption.setVisibility(View.GONE);
+                    } else {
+                        usedBalance = Constant.WALLET_BALANCE;
+                        tvWltBalance.setText(getString(R.string.remaining_wallet_balance) + Constant.SETTING_CURRENCY_SYMBOL + "0.0");
+                        lytPayOption.setVisibility(View.VISIBLE);
+                    }
+                    subtotal = (subtotal - usedBalance);
+                    tvWallet.setText("-" + Constant.SETTING_CURRENCY_SYMBOL + usedBalance);
+                    tvSubTotal.setText(Constant.SETTING_CURRENCY_SYMBOL + DatabaseHelper.decimalformatData.format(subtotal));
+                    chWallet.setTag("true");
+
+                } else {
+                    walletUncheck();
+                }
+
+            }
+        });
         PromoCodeCheck();
         setPaymentMethod();
     }

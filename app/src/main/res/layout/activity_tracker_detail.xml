@@ -9,7 +9,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="@color/white"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
         app:contentInsetStartWithNavigation="0dp"
@@ -31,12 +31,16 @@
                 android:id="@+id/lytoidinfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp">
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp">
 
                 <LinearLayout
                     android:id="@+id/lytoid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:orientation="horizontal">
 
                     <TextView
@@ -61,6 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lytoid"
+                    android:visibility="gone"
                     android:orientation="horizontal">
 
                     <TextView
@@ -82,274 +87,20 @@
                     android:id="@+id/line1"
                     android:layout_width="match_parent"
                     android:layout_height="1.5dp"
+                    android:visibility="gone"
                     android:layout_below="@+id/lytodate"
                     android:layout_marginTop="10dp"
                     android:background="@color/bg_color" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/line1" />
-
-
-                <View
-                    android:id="@+id/line2"
-                    android:layout_width="match_parent"
-                    android:layout_height="3dp"
-                    android:layout_below="@+id/recyclerView"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/bggray" />
-
-                <LinearLayout
-                    android:id="@+id/lytotherdetail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/line2"
-                    android:layout_margin="@dimen/margin_10dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:id="@+id/lytPriceDetail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:text="@string/price_details"
-                            android:textColor="@color/black"
-                            android:textStyle="bold" />
-
-
-                        <LinearLayout
-                            android:id="@+id/lytAmt"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/items"
-                                android:textColor="@color/dark_gray" />
-
-                            <TextView
-                                android:id="@+id/tvItemTotal"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="end"
-                                android:textColor="@color/dark_gray" />
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:id="@+id/lytDelivery"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/delivery_charge1"
-                                android:textColor="@color/dark_gray" />
-
-                            <TextView
-                                android:id="@+id/tvDeliveryCharge"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="end"
-                                android:textColor="@color/dark_gray" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/lytTax"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/tvTaxPercent"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/tax"
-                                android:textColor="@color/dark_gray" />
-
-                            <TextView
-                                android:id="@+id/tvTaxAmt"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="end"
-                                android:textColor="@color/dark_gray" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/lytDiscount"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/tvDPercent"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/discount"
-                                android:textColor="@color/dark_gray" />
-
-                            <TextView
-                                android:id="@+id/tvDAmount"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="end"
-                                android:textColor="@color/dark_gray" />
-                        </LinearLayout>
-
-                        <LinearLayout
-
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/total"
-                                android:textColor="@color/dark_gray" />
-
-                            <TextView
-                                android:id="@+id/tvTotal"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="end"
-                                android:textColor="@color/dark_gray" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/lytPromo"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/tvPromoCode"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/promo_applied"
-                                android:textColor="@color/dark_gray" />
-
-                            <TextView
-                                android:id="@+id/tvPCAmount"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="end"
-                                android:textColor="@color/dark_gray" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/lytWallet"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/wallet_balance1"
-                                android:textColor="@color/dark_gray" />
-
-                            <TextView
-                                android:id="@+id/tvWallet"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="end"
-                                android:textColor="@color/dark_gray" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/lytFinalTotal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/final_total"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/mid_text"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tvFinalTotal"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="end"
-                                android:textColor="@color/colorAccent"
-                                android:textSize="@dimen/mid_text"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <View
-                            android:id="@+id/line0"
-                            android:layout_width="match_parent"
-                            android:layout_height="3dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@color/bggray" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="@string/other_details"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtotherdetails"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/dark_gray" />
-                </LinearLayout>
-
-                <View
-                    android:id="@+id/line3"
-                    android:layout_width="match_parent"
-                    android:layout_height="3dp"
-                    android:layout_below="@+id/lytotherdetail"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="@dimen/margin_10dp"
-                    android:layout_marginEnd="@dimen/margin_10dp"
-                    android:background="@color/bggray" />
 
                 <LinearLayout
                     android:id="@+id/lytstatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/line3"
-                    android:layout_margin="@dimen/margin_10dp"
+                    android:layout_below="@+id/line1"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:layout_marginEnd="@dimen/margin_10dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -394,8 +145,8 @@
 
                             <ImageView
                                 android:id="@+id/img0"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
                                 app:srcCompat="@drawable/ic_tracker_btn" />
 
                             <TextView
@@ -432,8 +183,8 @@
 
                             <ImageView
                                 android:id="@+id/img1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
                                 app:srcCompat="@drawable/ic_tracker_btn" />
 
                             <TextView
@@ -470,8 +221,8 @@
 
                             <ImageView
                                 android:id="@+id/img2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
                                 app:srcCompat="@drawable/ic_tracker_btn" />
 
                             <TextView
@@ -508,8 +259,8 @@
 
                             <ImageView
                                 android:id="@+id/img3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
                                 app:srcCompat="@drawable/ic_tracker_btn" />
 
                             <TextView
@@ -548,8 +299,8 @@
 
                             <ImageView
                                 android:id="@+id/img4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="34dp"
+                                android:layout_height="34dp"
                                 app:srcCompat="@drawable/ic_tracker_btn" />
 
                             <TextView
@@ -564,6 +315,293 @@
                     </LinearLayout>
 
                 </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lytstatus" />
+
+
+                <View
+                    android:id="@+id/line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:visibility="gone"
+                    android:layout_below="@+id/recyclerView"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/bggray" />
+
+                <LinearLayout
+                    android:id="@+id/lytotherdetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/line2"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/lytPriceDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/price_details"
+                            android:visibility="gone"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+
+                        <LinearLayout
+                            android:id="@+id/lytAmt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/items"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/dark_gray" />
+
+                            <TextView
+                                android:id="@+id/tvItemTotal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/dark_gray" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/lytDelivery"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/delivery_charge1"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/dark_gray" />
+
+                            <TextView
+                                android:id="@+id/tvDeliveryCharge"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/dark_gray" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lytTax"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvTaxPercent"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/tax"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/dark_gray" />
+
+                            <TextView
+                                android:id="@+id/tvTaxAmt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/dark_gray" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lytDiscount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvDPercent"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/discount"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/dark_gray" />
+
+                            <TextView
+                                android:id="@+id/tvDAmount"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/dark_gray" />
+                        </LinearLayout>
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="3dp">
+
+                            <TextView
+
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/total"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/dark_gray" />
+
+                            <TextView
+                                android:id="@+id/tvTotal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/dark_gray" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lytPromo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="3dp">
+
+                            <TextView
+                                android:id="@+id/tvPromoCode"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/meiryo"
+                                android:text="@string/promo_applied"
+                                android:textColor="@color/dark_gray" />
+
+                            <TextView
+                                android:id="@+id/tvPCAmount"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/dark_gray" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lytWallet"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="3dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/wallet_balance1"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/dark_gray" />
+
+                            <TextView
+                                android:id="@+id/tvWallet"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/dark_gray" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lytFinalTotal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="3dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/final_total"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/mid_text"/>
+
+                            <TextView
+                                android:id="@+id/tvFinalTotal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/mid_text"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/line0"
+                            android:layout_width="match_parent"
+                            android:layout_height="15dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/grey_2" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Deliver to"
+                        android:fontFamily="@font/meiryo"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtotherdetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/meiryo"
+                        android:textColor="@color/dark_gray" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/line3"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_below="@+id/lytotherdetail"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="@dimen/margin_10dp"
+                    android:visibility="gone"
+                    android:background="@color/bggray" />
+
+
             </RelativeLayout>
         </RelativeLayout>
 
@@ -584,6 +622,7 @@
         android:background="@color/colorPrimary"
         android:onClick="OnBtnClick"
         android:text="@string/cancel_order_detail"
+        android:visibility="gone"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textStyle="bold" />
