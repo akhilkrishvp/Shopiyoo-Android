@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white">
 
     <androidx.appcompat.widget.Toolbar
@@ -183,23 +184,40 @@
                         android:layout_height="wrap_content"
                         android:layout_toStartOf="@+id/imgarrow"
                         android:orientation="vertical">
-
                         <TextView
                             android:id="@+id/txtoriginalprice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/meiryo"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/dimen_14sp" />
 
-                        <TextView
-                            android:id="@+id/txtprice"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/meiryo_bold"
-                            android:padding="1dp"
-                            android:textColor="@color/black"
                             android:textSize="@dimen/dimen_14sp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/txtprice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/meiryo_bold"
+                                android:padding="1dp"
+                                tools:text="15"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/dimen_14sp" />
+
+                            <TextView
+                                android:id="@+id/txtmeasurement"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="3dp"
+                                tools:text="asdv asdf"
+                                android:fontFamily="@font/meiryo"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/dimen_14sp" />
+                        </LinearLayout>
+
+
 
                         <TextView
                             android:id="@+id/txtdiscountPrice"
@@ -210,14 +228,7 @@
                             android:textColor="@color/green"
                             android:textSize="@dimen/dimen_14sp" />
 
-                        <TextView
-                            android:id="@+id/txtmeasurement"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="3dp"
-                            android:fontFamily="@font/meiryo"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/dimen_14sp" />
+
                     </LinearLayout>
 
                     <TextView
@@ -229,7 +240,7 @@
                         android:background="@drawable/bg_border"
                         android:drawablePadding="10dp"
                         android:padding="3dp"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:text="@string/more_variants"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/small_size" />
@@ -240,7 +251,7 @@
                         android:layout_height="0dp"
                         android:layout_below="@+id/imgarrow"
                         android:layout_alignParentEnd="true"
-                        android:visibility="invisible" />
+                        android:visibility="visible" />
 
                 </RelativeLayout>
 

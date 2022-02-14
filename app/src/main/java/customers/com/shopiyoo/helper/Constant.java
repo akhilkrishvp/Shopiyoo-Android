@@ -7,8 +7,8 @@ public class Constant {
 
 
 //    public static String MAINBASEUrl = "https://ekart.wrteam.in/";
-    public static String MAINBASEUrl = "http://admin.shopiyoo.in/";
-
+  //  public static String MAINBASEUrl = "http://admin.shopiyoo.in/";
+    public static String MAINBASEUrl = "http://grocerydemo.beecreateev.in/";
     public static String BaseUrl = MAINBASEUrl + "api-firebase/";
     public static ImageLoader imageLoader = AppController.getInstance().getImageLoader();
     public static String FAQ_URL = MAINBASEUrl + "pages_web/faq.php";
