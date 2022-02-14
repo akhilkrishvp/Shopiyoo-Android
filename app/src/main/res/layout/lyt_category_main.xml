@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:orientation="vertical">
-        <customers.com.shopiyoo.helper.RoundRectCornerImageView
+        <customers.com.bigbis.helper.RoundRectCornerImageView
             android:id="@+id/imgcategory"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

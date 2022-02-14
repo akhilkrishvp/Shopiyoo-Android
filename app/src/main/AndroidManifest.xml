@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-        package="customers.com.shopiyoo">
+        package="customers.com.bigbis">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name="customers.com.shopiyoo.helper.AppController"
+        android:name="customers.com.bigbis.helper.AppController"
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
@@ -20,29 +20,29 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:usesCleartextTraffic,android:allowBackup"
         tools:targetApi="m">
-        <activity android:name="customers.com.shopiyoo.activity.NotificationList" />
-        <activity android:name="customers.com.shopiyoo.activity.DrawerActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.WebViewActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.MapActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.OrderListActivity"
+        <activity android:name="customers.com.bigbis.activity.NotificationList" />
+        <activity android:name="customers.com.bigbis.activity.DrawerActivity" />
+        <activity android:name="customers.com.bigbis.activity.WebViewActivity" />
+        <activity android:name="customers.com.bigbis.activity.MapActivity" />
+        <activity android:name="customers.com.bigbis.activity.OrderListActivity"
             android:hardwareAccelerated="true"/>
-        <activity android:name="customers.com.shopiyoo.activity.TrackerDetailActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.OrderPlacedActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.CheckoutActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.FullScreenViewActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.ProductDetailActivity">
+        <activity android:name="customers.com.bigbis.activity.TrackerDetailActivity" />
+        <activity android:name="customers.com.bigbis.activity.OrderPlacedActivity" />
+        <activity android:name="customers.com.bigbis.activity.CheckoutActivity" />
+        <activity android:name="customers.com.bigbis.activity.FullScreenViewActivity" />
+        <activity android:name="customers.com.bigbis.activity.ProductDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="customers.com.shopiyoo.activity.SplashActivity" />
+                android:value="customers.com.bigbis.activity.SplashActivity" />
         </activity>
         <activity
-            android:name="customers.com.shopiyoo.activity.SearchActivity"
+            android:name="customers.com.bigbis.activity.SearchActivity"
             android:launchMode="singleTop" />
-        <activity android:name="customers.com.shopiyoo.activity.ProfileActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.LoginActivity"
+        <activity android:name="customers.com.bigbis.activity.ProfileActivity" />
+        <activity android:name="customers.com.bigbis.activity.LoginActivity"
             android:hardwareAccelerated="true"
             android:theme="@style/AppTheme_green"/>
-        <activity android:name="customers.com.shopiyoo.activity.SplashActivity">
+        <activity android:name="customers.com.bigbis.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -66,15 +66,15 @@
                     android:scheme="https" />
             </intent-filter>
         </activity>
-        <activity android:name="customers.com.shopiyoo.activity.MainActivity"
+        <activity android:name="customers.com.bigbis.activity.MainActivity"
             android:hardwareAccelerated="true"/>
-        <activity android:name="customers.com.shopiyoo.activity.ReferEarnActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.SubCategoryActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.FavouriteActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.CartActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.ProductListActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.CategoryActivity" />
-        <activity android:name="customers.com.shopiyoo.activity.PayPalWebActivity" />
+        <activity android:name="customers.com.bigbis.activity.ReferEarnActivity" />
+        <activity android:name="customers.com.bigbis.activity.SubCategoryActivity" />
+        <activity android:name="customers.com.bigbis.activity.FavouriteActivity" />
+        <activity android:name="customers.com.bigbis.activity.CartActivity" />
+        <activity android:name="customers.com.bigbis.activity.ProductListActivity" />
+        <activity android:name="customers.com.bigbis.activity.CategoryActivity" />
+        <activity android:name="customers.com.bigbis.activity.PayPalWebActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -86,21 +86,15 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <receiver android:name=".helper.SMSBroadcastReceiver"
-            android:permission="TODO">
-            <intent-filter>
-                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
-            </intent-filter>
-        </receiver>
 
-        <service android:name="customers.com.shopiyoo.helper.MyFirebaseMessagingService"
+        <service android:name="customers.com.bigbis.helper.MyFirebaseMessagingService"
             android:stopWithTask="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <service android:name="customers.com.shopiyoo.helper.GPSTracker" />
+        <service android:name="customers.com.bigbis.helper.GPSTracker" />
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"

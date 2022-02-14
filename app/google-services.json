@@ -1,115 +1,33 @@
 {
   "project_info": {
-    "project_number": "909384827255",
-    "project_id": "shopiyoo-43e7b",
-    "storage_bucket": "shopiyoo-43e7b.appspot.com"
+    "project_number": "251991021194",
+    "project_id": "bigbis",
+    "storage_bucket": "bigbis.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:909384827255:android:81ad68531540ca86b7e172",
+        "mobilesdk_app_id": "1:251991021194:android:941545802825b7bb3cff73",
         "android_client_info": {
-          "package_name": "com.dhdevelopers.dshopiyoo"
+          "package_name": "customers.com.bigbis"
         }
       },
       "oauth_client": [
         {
-          "client_id": "909384827255-jgkc465rcmms7pc2hv43eivtr5soa7n1.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.dhdevelopers.dshopiyoo",
-            "certificate_hash": "bd9bad6a37372af38ff61981c457ffe832e38e9e"
-          }
-        },
-        {
-          "client_id": "909384827255-t6hnvnos6cl8707diidm1vmmitb2v5je.apps.googleusercontent.com",
+          "client_id": "251991021194-5hi2g0r304ggu35mroqdogpi6t50hnd1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDVQdQYZ52lPaLTxLL2u1TdpxpSkPbZg84"
+          "current_key": "AIzaSyDN1ZEMW4RigFxUzSPaGYTQEv2RpyRCzKU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "909384827255-t6hnvnos6cl8707diidm1vmmitb2v5je.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:909384827255:android:e902e61d17e432f0b7e172",
-        "android_client_info": {
-          "package_name": "customers.com.shopiyoo"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "909384827255-ps6kjtuuj2m786mi8ffg21en501bh1b2.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "customers.com.shopiyoo",
-            "certificate_hash": "94ffa0243a0bb9022cf9715f94387082e5e3b70e"
-          }
-        },
-        {
-          "client_id": "909384827255-t6hnvnos6cl8707diidm1vmmitb2v5je.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDVQdQYZ52lPaLTxLL2u1TdpxpSkPbZg84"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "909384827255-t6hnvnos6cl8707diidm1vmmitb2v5je.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:909384827255:android:0c9fafd0d7857a2cb7e172",
-        "android_client_info": {
-          "package_name": "dhdeveloper.com.shopiyoo"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "909384827255-idu49c7q91iseumhcdc59iieg8jgd2a9.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "dhdeveloper.com.shopiyoo",
-            "certificate_hash": "94ffa0243a0bb9022cf9715f94387082e5e3b70e"
-          }
-        },
-        {
-          "client_id": "909384827255-t6hnvnos6cl8707diidm1vmmitb2v5je.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDVQdQYZ52lPaLTxLL2u1TdpxpSkPbZg84"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "909384827255-t6hnvnos6cl8707diidm1vmmitb2v5je.apps.googleusercontent.com",
+              "client_id": "251991021194-5hi2g0r304ggu35mroqdogpi6t50hnd1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

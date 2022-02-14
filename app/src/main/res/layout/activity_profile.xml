@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
-    tools:context="customers.com.shopiyoo.activity.ProfileActivity">
+    tools:context="customers.com.bigbis.activity.ProfileActivity">
 
     <RelativeLayout
         android:id="@+id/lyttoolbar"
