@@ -55,7 +55,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/logo_login" />
+                android:src="@drawable/logo" />
 
 
             <com.google.android.material.textfield.TextInputLayout

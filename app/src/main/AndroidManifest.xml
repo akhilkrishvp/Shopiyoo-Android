@@ -104,7 +104,7 @@
             android:resource="@color/colorPrimary" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBXlhKonnI81SudNKTAG8S3T9Q8z8quiTg" />
+            android:value="AIzaSyC71JNNi9KjjZdxdXPVfDRgOjVSjFuqU8o" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

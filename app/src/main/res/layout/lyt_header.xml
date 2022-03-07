@@ -20,8 +20,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="5dp"
-            android:src="@drawable/ic_logo_cart"
-            app:tint="@color/green_branded" />
+            android:src="@drawable/logo"/>
 
         <TextView
             android:id="@+id/header_name"

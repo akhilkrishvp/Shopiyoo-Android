@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 30
     defaultConfig {
-        applicationId "customers.com.shopiyoo"
+        applicationId "customers.com.bigbis"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 4
